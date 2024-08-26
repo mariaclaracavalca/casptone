@@ -2,7 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
 
-const port = process.env.PORT || 6000; // verifica funzionamento  progetto
+const port = process.env.PORT || 6000; // verifica funzionamento progetto
 const app = express();
 
 mongoose.connect(process.env.MONGO_CONNECT_URL)
