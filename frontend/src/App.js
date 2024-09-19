@@ -1,24 +1,17 @@
-import { memo, useState } from 'react';
+import React from 'react';
+import Register from './register/Register';
+import Login from './login/Login';
+import UserList from './user/UserList';
 
-export default function MyApp() {
-  const [name, setName] = useState('');
-  const [address, setAddress] = useState('');
+const App = () => {
   return (
-    <>
-      <label>
-        Name{': '}
-        <input value={name} onChange={e => setName(e.target.value)} />
-      </label>
-      <label>
-        Address{': '}
-        <input value={address} onChange={e => setAddress(e.target.value)} />
-      </label>
-      <Greeting name={name} />
-    </>
+    <div>
+      <h1>Creato per test</h1>
+      <Register />
+      <Login />
+      <UserList />
+    </div>
   );
-}
+};
 
-const Greeting = memo(function Greeting({ name }) {
-  console.log("Greeting was rendered at", new Date().toLocaleTimeString());
-  return <h3>Hello{name && ', '}{name}!</h3>;
-});
+export default App;

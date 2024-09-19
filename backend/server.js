@@ -9,21 +9,24 @@ import userRoutes from './routes/userRoutes.js';
 const app = express();
 const port = 6000;
 
-app.use(cors());
-app.use(express.json()); 
+app.use(cors({
+    origin: 'http://localhost:6000/api/users.', 
+}));
 
-// Connetti a MongoDB
-mongoose.connect(process.env.MONGO_CONNECT_URL).then(() => {
-  console.log("Connesso a MongoDB");
-}).catch(err => {
-  console.error("Errore di connessione a MongoDB:", err);
-});
+app.use(express.json());
+
+mongoose.connect(process.env.MONGO_CONNECT_URL)
+    .then(() => {
+        console.log("Connesso a MongoDB");
+    })
+    .catch(err => {
+        console.error("Errore di connessione mongoDB:", err);
+    });
 
 
-// Usa le rotte degli utenti
 app.use(userRoutes);
 
-// Inizializza il server
 app.listen(port, () => {
     console.log(`Server backend in esecuzione su http://localhost:${port}`);
 });
+
