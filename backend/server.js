@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config(); // Deve essere chiamato prima di accedere a `process.env`
+dotenv.config(); 
 
 import express from 'express';
 import mongoose from 'mongoose';
@@ -17,16 +17,17 @@ app.use(express.json());
 
 mongoose.connect(process.env.MONGO_CONNECT_URL)
     .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log(process.env.PORT);
+        });
         console.log("Connesso a MongoDB");
     })
     .catch(err => {
         console.error("Errore di connessione mongoDB:", err);
     });
-
+  
 
 app.use(userRoutes);
 
-app.listen(port, () => {
-    console.log(`Server backend in esecuzione su http://localhost:${port}`);
-});
+
 
