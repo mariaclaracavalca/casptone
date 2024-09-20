@@ -7,7 +7,7 @@ const UserList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:6000/api/users');
+        const response = await fetch('http://localhost:8080/api/users');
         const data = await response.json();
         if (response.ok) {
           setUsers(data);
@@ -25,7 +25,7 @@ const UserList = () => {
 
   const deleteUser = async (userId) => {
     try {
-      const response = await fetch(`http://localhost:6000/api/users/${userId}`, {
+      const response = await fetch(`http://localhost:8080/api/users/${userId}`, {
         method: 'DELETE',
       });
 

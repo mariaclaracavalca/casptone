@@ -7,10 +7,9 @@ import cors from 'cors';
 import userRoutes from './routes/userRoutes.js';
 
 const app = express();
-const port = 6000;
 
 app.use(cors({
-    origin: 'http://localhost:6000/api/users.', 
+    origin: 'http://localhost:3000', 
 }));
 
 app.use(express.json());
@@ -28,6 +27,3 @@ mongoose.connect(process.env.MONGO_CONNECT_URL)
   
 
 app.use(userRoutes);
-
-
-
