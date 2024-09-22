@@ -1,0 +1,137 @@
+/* Stile per l'intero footer */
+.footer {
+    background-color: #100323;
+    color: #ffffff;
+    padding: 40px 20px;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-links {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    max-width: 50%;
+  }
+  
+  .footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #d3bfff; 
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-column li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .footer-column li a:hover {
+    color: #d3bfff; 
+  
+  }
+
+  .footer-newsletter {
+    flex: 1;
+    margin-left: 50px;
+    max-width: 40%;
+  }
+  
+  .footer-newsletter h3 {
+    font-size: 18px;
+    color: #d3bfff;
+  }
+  
+  .footer-newsletter p {
+    margin-bottom: 15px;
+  }
+  
+  .footer-newsletter form {
+    display: flex;
+  }
+  
+  .footer-newsletter input {
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .footer-newsletter button {
+    background-color: #a971ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .footer-newsletter button:hover {
+    background-color: #d3bfff;
+  }
+  
+  .privacy-notice {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  
+  .privacy-notice a {
+    color: #ffa100;
+    text-decoration: none;
+  }
+  
+  .footer-bottom {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .footer-bottom p {
+    margin-bottom: 10px;
+  }
+  
+  .social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .social-links li {
+    margin: 0 10px;
+  }
+  
+  .social-links li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .social-icons {
+    margin-top: 20px;
+  }
+  
+  .social-icons a {
+    color: #ffffff;
+    margin: 0 10px;
+    font-size: 20px;
+  }
+  
+  .social-icons a:hover {
+    color: #d3bfff; 
+  }
+  

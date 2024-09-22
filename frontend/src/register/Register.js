@@ -18,7 +18,7 @@ const Register = () => {
         body: JSON.stringify({ name, email ,password })
       });
   
-      console.log(response);  // <--- Controlla la risposta qui
+      console.log(response);  
       const data = await response.json();
       if (response.ok) {
         setMessage('Registrazione completata con successo!');
@@ -26,7 +26,7 @@ const Register = () => {
         setMessage(data.message || 'Errore nella registrazione');
       }
     } catch (error) {
-      console.error(error);  // <--- Controlla l'errore nel client
+      console.error(error); 
       setMessage('Errore nella connessione al server');
     }
   };

@@ -58,7 +58,7 @@ router.delete('/api/users/:id', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-  
+
   res.status(200).json({ message: 'Utente cancellato con successo' });}
 );
 

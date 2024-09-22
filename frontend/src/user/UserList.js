@@ -18,8 +18,7 @@ const UserList = () => {
         setError('Errore nella connessione al server');
       }
     };
-    
-
+  
     fetchUsers();
   }, []);
 

@@ -1,17 +1,21 @@
 import React from 'react';
-import Register from './register/Register';
-import Login from './login/Login';
-import UserList from './user/UserList';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import NavBar from './navbar/NavBar';  
+import AuthPage from './authPage/AuthPage'; 
+// import Footer from './footer/Footer';
 
-const App = () => {
+
+function App() {
   return (
-    <div>
-      <h1>Creato per test</h1>
-      <Register />
-      <Login />
-      <UserList />
-    </div>
+    <Router>
+      <div>
+        <NavBar />
+        <Routes>
+          <Route path="/login" element={<AuthPage />} />  
+        </Routes>
+      </div>
+    </Router>
   );
-};
+}
 
 export default App;
