@@ -1,13 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";  
-import logo from "../assets/logo.png"; 
+import { useNavigate } from 'react-router-dom'; 
+import logo from '../assets/logo.png'; 
 import "./NavBar.css";
 
 const NavBar = () => {
-  const navigate = useNavigate();  
+  const navigate = useNavigate(); 
+  const handleLoginClick = () => {
+    navigate("/login");  
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
+
         <div className="logo">
           <a href="/">
             <img src={logo} alt="Logo" className="navbar-logo" /> 
@@ -20,9 +25,9 @@ const NavBar = () => {
           <li><a href="/tutorials">Testing Automation</a></li>
           <li><a href="/community">Community</a></li>
         </ul>
-
+        
         <div className="button-login">
-          <button onClick={() => navigate("/login")}>Accedi</button>
+          <button onClick={handleLoginClick}>Accedi</button> 
         </div>
       </div>
     </nav>

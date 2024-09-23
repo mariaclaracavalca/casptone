@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavBar from './navbar/NavBar';  
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import NavBar from './home/NavBar';  
 import AuthPage from './authPage/AuthPage'; 
-// import Footer from './footer/Footer';
-
+import UserList from './user/UserList'; 
+import Home from './home/Home'; 
 
 function App() {
   return (
@@ -11,7 +11,10 @@ function App() {
       <div>
         <NavBar />
         <Routes>
-          <Route path="/login" element={<AuthPage />} />  
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<AuthPage />} />
+          <Route path="/users" element={<UserList />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
     </Router>
