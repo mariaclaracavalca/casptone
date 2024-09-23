@@ -67,7 +67,7 @@ body {
     color: #d3bfff; 
   }
   
-  .cta-button button {
+  .button-login button {
     background-color: #a971ff; 
     color: #ffffff;
     border: none;
@@ -79,7 +79,7 @@ body {
     transition: background-color 0.3s ease;
   }
   
-  .cta-button button:hover {
+  .button-login button:hover {
     background-color: #d3bfff; 
   }
 
@@ -92,7 +92,7 @@ body {
       font-size: 14px;
     }
   
-    .cta-button button {
+    .button-login button {
       font-size: 14px;
       padding: 8px 16px;
     }

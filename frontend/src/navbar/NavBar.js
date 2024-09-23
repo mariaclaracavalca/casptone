@@ -21,7 +21,7 @@ const NavBar = () => {
           <li><a href="/community">Community</a></li>
         </ul>
 
-        <div className="cta-button">
+        <div className="button-login">
           <button onClick={() => navigate("/login")}>Accedi</button>
         </div>
       </div>
