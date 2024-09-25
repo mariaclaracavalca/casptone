@@ -11,9 +11,9 @@ function App() {
       <div>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/login" element={<AuthPage />} />
-          <Route path="/users" element={<UserList />} />
+          <Route path="/user" element={<UserList />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
