@@ -26,7 +26,7 @@ const AuthPage = () => {
 
       const data = await response.json();
       if (response.ok) {
-        setMessage('Login avvenuto con successo!');
+        setMessage('Login avvenuto con successo.');
       } else {
         setMessage(data.message || 'Errore nel login');
       }

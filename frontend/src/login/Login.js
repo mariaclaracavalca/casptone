@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
@@ -14,11 +14,13 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ email, password })
       });
 
       const data = await response.json();
+
       if (response.ok) {
+        localStorage.setItem('token', data.token);
         setMessage('Login avvenuto con successo!');
       } else {
         setMessage(data.message || 'Errore nel login');
@@ -33,10 +35,10 @@ const Login = () => {
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <input

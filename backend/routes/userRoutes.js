@@ -1,33 +1,84 @@
 import express from 'express';
-import User from '../models/User.js'; // Importa il modello utente
+import bcrypt from 'bcryptjs'; 
+import jwt from 'jsonwebtoken'; 
+import User from '../models/User.js'; 
+import AuthMiddleware from '../middleware/AuthMiddleware.js';
+import { body, validationResult } from 'express-validator'; 
 
 const router = express.Router();
 
-// CREATE (POST) - Crea un nuovo utente
-router.post('/api/users', async (req, res) => {
+router.post('/api/users', [
+  body('name').notEmpty().withMessage('Nome è richiesto'),
+  body('email').isEmail().withMessage('Email non valida'),
+  body('password').isLength({ min: 6 }).withMessage('La password deve avere almeno 6 caratteri'),
+], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
-    const newUser = new User(req.body);
+    const { name, email, password } = req.body;
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: 'Email già in uso' });
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    const newUser = new User({ name, email, password: hashedPassword });
     await newUser.save();
-    res.status(201).json(newUser);
+
+    res.status(201).json({ id: newUser._id, name: newUser.name, email: newUser.email }); 
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 });
 
-// READ (GET) - Ottieni tutti gli utenti
-router.get('/api/users', async (req, res) => {
+router.post('/api/users/login', async (req, res) => {
+  const { email, password } = req.body;
+
   try {
-    const users = await User.find();
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: 'Utente non trovato' });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Password non corretta' });
+    }
+
+    const token = jwt.sign(
+      { userId: user._id, email: user.email },
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+
+    res.status(200).json({
+      message: 'Login avvenuto con successo',
+      token: token
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Errore del server' });
+  }
+});
+
+router.get('/api/users', AuthMiddleware, async (req, res) => {
+  try {
+    const users = await User.find().select('-password'); 
     res.status(200).json(users);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-// READ (GET) - Ottieni un utente per ID
-router.get('/api/users/:id', async (req, res) => {
+router.get('/api/users/:id', AuthMiddleware, async (req, res) => {
   try {
-    const user = await User.findById(req.params.id);
+    const user = await User.findById(req.params.id).select('-password');
     if (!user) return res.status(404).json({ message: 'Utente non trovato' });
     res.status(200).json(user);
   } catch (error) {
@@ -35,10 +86,9 @@ router.get('/api/users/:id', async (req, res) => {
   }
 });
 
-// UPDATE (PUT) - Aggiorna un utente
-router.put('/api/users/:id', async (req, res) => {
+router.put('/api/users/:id', AuthMiddleware, async (req, res) => {
   try {
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
     if (!updatedUser) return res.status(404).json({ message: 'Utente non trovato' });
     res.status(200).json(updatedUser);
   } catch (error) {
@@ -46,8 +96,7 @@ router.put('/api/users/:id', async (req, res) => {
   }
 });
 
-// DELETE (DELETE) - Cancella un utente
-router.delete('/api/users/:id', async (req, res) => {
+router.delete('/api/users/:id', AuthMiddleware, async (req, res) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.params.id);
     if (!deletedUser) return res.status(404).json({ message: 'Utente non trovato' });
@@ -56,10 +105,5 @@ router.delete('/api/users/:id', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
-router.get('/', async (req, res) => {
-
-  res.status(200).json({ message: 'Utente cancellato con successo' });}
-);
 
 export default router;
