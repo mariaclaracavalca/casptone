@@ -29,7 +29,7 @@ const UserList = () => {
       });
 
       if (response.ok) {
-        setUsers(users.filter((user) => user._id !== userId)); // Rimuovi utente dalla lista
+        setUsers(users.filter((user) => user._id !== userId)); 
       } else {
         setError('Errore durante l\'eliminazione dell\'utente');
       }

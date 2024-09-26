@@ -1,0 +1,28 @@
+.testing-section {
+    background-color: #1c1c3c;  
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #f9a825;  
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #e0e0e0; 
+  }
+  
+  .testing-image {
+    width: 200px;
+    margin-top: 30px;
+  }
+  

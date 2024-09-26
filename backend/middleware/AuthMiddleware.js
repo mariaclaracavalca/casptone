@@ -8,7 +8,7 @@ const authMiddleware = (req, res, next) => {
   }
 
   try {
-    // Verifica il token
+    // Verifica token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded; 
     next(); 

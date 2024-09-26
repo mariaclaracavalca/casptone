@@ -1,0 +1,42 @@
+.bdd-tdd-section {
+    background-color: #282852;  
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    color: #f9a825;  
+  }
+  
+  .methods {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+  }
+  
+  .method {
+    width: 45%;
+  }
+  
+  .method h3 {
+    font-size: 1.8rem;
+    color: #f9a825;
+  }
+  
+  .method p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+  }
+  
+  .method img {
+    width: 100px;
+    margin-top: 20px;
+  }
+  

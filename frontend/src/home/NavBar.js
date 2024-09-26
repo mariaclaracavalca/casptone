@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png'; 
 import "./NavBar.css";
 
+
 const NavBar = () => {
   const navigate = useNavigate(); 
   const handleLoginClick = () => {
@@ -20,10 +21,10 @@ const NavBar = () => {
         </div>
 
         <ul className="nav-links">
-          <li><a href="/courses">Cos'è Test</a></li>
-          <li><a href="/membership">BDD e TDD</a></li>
-          <li><a href="/tutorials">Testing Automation</a></li>
-          <li><a href="/community">Community</a></li>
+          <li><a href="#testing-section">What is Testing</a></li>
+          <li><a href="#bdd-tdd-section">BDD & TDD</a></li>
+          <li><a href="#automation-section">Testing Automation</a></li>
+          <li><a href="#community-section">Community</a></li>
         </ul>
         
         <div className="button-login">

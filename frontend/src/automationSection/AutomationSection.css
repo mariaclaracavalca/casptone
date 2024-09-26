@@ -1,0 +1,70 @@
+.automation-section {
+    background-color: #1c1c3c;
+    color: white;
+    padding: 60px 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    color: #ffb74d;  
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+  }
+  
+  .automation-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: 30%;
+    background-color: #333;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card h3 {
+    color: #ffb74d;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #e0e0e0;
+  }
+  
+  .card img {
+    width: 100px;
+    margin-top: 20px;
+  }
+  
+  .example-section {
+    margin-top: 40px;
+    background-color: #282852;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+  }
+  
+  .example-section pre {
+    color: #fff;
+    text-align: left;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
