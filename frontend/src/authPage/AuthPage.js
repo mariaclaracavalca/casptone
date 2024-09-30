@@ -53,7 +53,7 @@ const AuthPage = () => {
         setMessage(data.message || 'Errore nella registrazione');
       }
     } catch (error) {
-      setMessage('Errore nella connessione al server');
+      setMessage('Errore nella connessione al server - auth');
     }
   };
 

@@ -27,7 +27,7 @@ const Register = () => {
       }
     } catch (error) {
       console.error(error); 
-      setMessage('Errore nella connessione al server');
+      setMessage('Errore nella connessione al server - register');
     }
   };
   

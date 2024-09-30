@@ -1,5 +1,7 @@
 import React from 'react';
 import './BddTddSection.css'; 
+import bddIcon from '../assets/bdd-icon.png';
+import tddIcon from '../assets/tdd-icon.png';
 
 const BddTddSection = () => {
   return (
@@ -18,7 +20,7 @@ const BddTddSection = () => {
               Behavior Driven Development (BDD) focuses on the behavior of an application from the user's perspective.
               It uses scenarios written in plain language to define how the system should behave.
             </p>
-            <img src="path_to_bdd_image" alt="BDD" />
+            <img src={bddIcon} alt="BDD" />
           </div>
 
           <div className="method">
@@ -27,7 +29,7 @@ const BddTddSection = () => {
               Test Driven Development (TDD) is a technique where you write tests first, then implement the code
               to make those tests pass. This ensures the correctness of each small piece of functionality.
             </p>
-            <img src="path_to_tdd_image" alt="TDD" />
+            <img src={tddIcon} alt="TDD" />
           </div>
         </div>
       </div>

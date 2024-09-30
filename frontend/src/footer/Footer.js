@@ -34,7 +34,7 @@ const Footer = () => {
                     <p className="privacy-notice">
                         By registering, you confirm that you read & accepted our <a href="/privacy-policy">privacy policy</a>.
                     </p>
-                </div>
+                </div> */}
             </div>
             <div className="footer-bottom">
                 <p>© EpicTest GmbH. All rights reserved.</p>

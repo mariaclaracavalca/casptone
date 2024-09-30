@@ -1,5 +1,9 @@
 import React from 'react';
-import './AutomationSection.css';  // Stile separato
+import './AutomationSection.css';
+import seleniumIcon from '../assets/selenium-icon.png';
+import cypressIcon from '../assets/cypress-icon.png';
+import jestIcon from '../assets/jest-icon.png';
+
 
 const AutomationSection = () => {
   return (
@@ -19,7 +23,7 @@ const AutomationSection = () => {
               Selenium is a powerful tool for automating browsers, used for
               testing web applications.
             </p>
-            <img src="path_to_selenium_image" alt="Selenium" />
+            <img src={seleniumIcon} alt="Selenium" />
           </div>
 
           <div className="card">
@@ -28,7 +32,7 @@ const AutomationSection = () => {
               Cypress is a JavaScript-based end-to-end testing framework focused
               on making testing simple and reliable.
             </p>
-            <img src="path_to_cypress_image" alt="Cypress" />
+            <img src={cypressIcon} alt="Cypress" />
           </div>
 
           <div className="card">
@@ -37,7 +41,7 @@ const AutomationSection = () => {
               Jest is a delightful JavaScript testing framework with a focus on
               simplicity and support for large test suites.
             </p>
-            <img src="path_to_jest_image" alt="Jest" />
+            <img src={jestIcon} alt="Jest" />
           </div>
         </div>
 

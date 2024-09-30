@@ -26,7 +26,7 @@ const Login = () => {
         setMessage(data.message || 'Errore nel login');
       }
     } catch (error) {
-      setMessage('Errore nella connessione al server');
+      setMessage('Errore nella connessione al server - login');
     }
   };
 

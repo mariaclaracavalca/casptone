@@ -34,7 +34,7 @@ const UserList = () => {
         setError('Errore durante l\'eliminazione dell\'utente');
       }
     } catch (error) {
-      setError('Errore nella connessione al server');
+      setError('Errore nella connessione al server - userList');
     }
   };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import './TestingSection.css'; 
+import testIcon from '../assets/test-oficial-icon.png';
 
 const TestingSection = () => {
   return (
@@ -11,7 +12,7 @@ const TestingSection = () => {
           It involves the identification of bugs, ensuring the quality and reliability
           of software, and validating that it meets the specified requirements.
         </p>
-        <img src="path_to_image_or_icon" alt="Software Testing" className="testing-image" />
+        <img src={testIcon} alt="Software Testing" className="testing-image" />
       </div>
     </section>
   );
