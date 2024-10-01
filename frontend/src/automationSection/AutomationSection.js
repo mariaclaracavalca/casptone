@@ -7,7 +7,7 @@ import jestIcon from '../assets/jest-icon.png';
 
 const AutomationSection = () => {
   return (
-    <section className="automation-section">
+    <section id="automation-section" className="automation-section">
       <div className="container">
         <h2>Testing Automation</h2>
         <p>

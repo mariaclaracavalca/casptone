@@ -1,58 +1,49 @@
 import React from "react";
 import "./Footer.css";
-import { FaTwitter, FaFacebook, FaYoutube, FaGithub, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className="footer-container">
-                <div className="footer-links">
-                    <div className="footer-column">
-                        <h3>TEST</h3>
-                        <ul>
-                            <li><a href="/courses">All </a></li>
-                            <li><a href="/academind-pro"> Pro</a></li>
-                        </ul>
-                    </div>
-                    <div className="footer-column">
-                        <h3>OTHER </h3>
-                        <ul>
-                            <li><a href="/tutorials">Tutorial </a></li>
-                            <li><a href="/podcast">Podcast</a></li>
-                            <li><a href="/community">EpicTest Community</a></li>
-                        </ul>
-                    </div>
-                </div>
+  return (
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-about">
+          <h3>About EpicTest</h3>
+          <p>EpicTest è una piattaforma dedicata alla formazione nel campo del testing con risorse su TDD, BDD, automazione dei test, e molto altro.</p>
+        </div>
 
-                <div className="footer-newsletter">
-                    <h3>SUBSCRIBE TO  NEWSLETTER</h3>
-                    <p> articles & more</p>
-                    <form>
-                        <input type="email" placeholder="Enter your email address" />
-                        <button type="submit">Register</button>
-                    </form>
-                    <p className="privacy-notice">
-                        By registering, you confirm that you read & accepted our <a href="/privacy-policy">privacy policy</a>.
-                    </p>
-                </div> */}
-            </div>
-            <div className="footer-bottom">
-                <p>© EpicTest GmbH. All rights reserved.</p>
-                <ul className="social-links">
-                    <li><a href="/impressum">Impressum</a></li>
-                    <li><a href="/imprint">Imprint</a></li>
-                    <li><a href="/privacy-policy">Privacy Policy</a></li>
-                </ul>
-                <div className="social-icons">
-                    <a href="https://twitter.com"><FaTwitter /></a>
-                    <a href="https://facebook.com"><FaFacebook /></a>
-                    <a href="https://youtube.com"><FaYoutube /></a>
-                    <a href="https://github.com"><FaGithub /></a>
-                    <a href="https://instagram.com"><FaInstagram /></a>
-                </div>
-            </div>
-        </footer>
-    );
+        <div className="footer-links">
+          <div className="footer-column">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="/courses">All Courses</a></li>
+              <li><a href="/documentation">Documentation</a></li>
+              <li><a href="/community">Community</a></li>
+            </ul>
+          </div>
+
+          <div className="footer-column">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="footer-motto">
+        <p>"Learning never exhausts the mind" – EpicTest</p>
+      </div>
+
+      <div className="footer-bottom">
+        <p>© 2024 EpicTest. All rights reserved.</p>
+        <ul className="legal-links">
+          <li><a href="/impressum">Impressum</a></li>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+        </ul>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

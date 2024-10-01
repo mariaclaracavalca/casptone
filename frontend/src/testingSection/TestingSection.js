@@ -4,7 +4,7 @@ import testIcon from '../assets/test-oficial-icon.png';
 
 const TestingSection = () => {
   return (
-    <section className="testing-section">
+    <section id="testing-section" className="testing-section">
       <div className="container">
         <h1>What is Software Testing?</h1>
         <p>

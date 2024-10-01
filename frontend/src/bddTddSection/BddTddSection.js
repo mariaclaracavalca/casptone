@@ -5,7 +5,7 @@ import tddIcon from '../assets/tdd-icon.png';
 
 const BddTddSection = () => {
   return (
-    <section className="bdd-tdd-section">
+    <section id="bdd-tdd-section" className="bdd-tdd-section">
       <div className="container">
         <h2>Behavior Driven Development (BDD) & Test Driven Development (TDD)</h2>
         <p>

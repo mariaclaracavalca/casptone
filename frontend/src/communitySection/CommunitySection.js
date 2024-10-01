@@ -3,7 +3,7 @@ import './CommunitySection.css';
 
 const CommunitySection = () => {
   return (
-    <section className="community-section">
+    <section id="community-section" className="community-section">
       <div className="container">
         <h2>Join the Software Testing Community</h2>
         <p>
