@@ -31,7 +31,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-motto">
-        <p>"Learning never exhausts the mind" – EpicTest</p>
+        <p>"Learning never exhausts the mind"</p>
       </div>
 
       <div className="footer-bottom">

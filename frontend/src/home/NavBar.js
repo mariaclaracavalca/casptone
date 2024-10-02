@@ -3,17 +3,24 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png'; 
 import "./NavBar.css";
 
-
 const NavBar = () => {
   const navigate = useNavigate(); 
+  
+  const username = localStorage.getItem('username');
+
   const handleLoginClick = () => {
     navigate("/login");  
+  };
+
+  const handleLogoutClick = () => {
+    localStorage.removeItem('token'); 
+    localStorage.removeItem('username'); 
+    navigate("/login"); 
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-
         <div className="logo">
           <a href="/">
             <img src={logo} alt="Logo" className="navbar-logo" /> 
@@ -28,7 +35,11 @@ const NavBar = () => {
         </ul>
         
         <div className="button-login">
-          <button onClick={handleLoginClick}>Accedi</button> 
+          {username ? (
+            <button onClick={handleLogoutClick}>{username}</button> 
+          ) : (
+            <button onClick={handleLoginClick}>Accedi</button>
+          )}
         </div>
       </div>
     </nav>

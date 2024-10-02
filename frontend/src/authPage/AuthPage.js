@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import './AuthPage.css'; 
 
 const AuthPage = () => {
@@ -7,6 +8,7 @@ const AuthPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); 
 
   const toggleForm = () => {
     setIsLogin(!isLogin); 
@@ -26,7 +28,9 @@ const AuthPage = () => {
 
       const data = await response.json();
       if (response.ok) {
+        localStorage.setItem('token', data.token); 
         setMessage('Login avvenuto con successo.');
+        navigate('/home');
       } else {
         setMessage(data.message || 'Errore nel login');
       }
@@ -45,9 +49,10 @@ const AuthPage = () => {
         },
         body: JSON.stringify({ name, email, password })
       });
-
+  
       const data = await response.json();
       if (response.ok) {
+        localStorage.setItem('username', name); // Salva il nome
         setMessage('Registrazione completata con successo!');
       } else {
         setMessage(data.message || 'Errore nella registrazione');
@@ -56,11 +61,11 @@ const AuthPage = () => {
       setMessage('Errore nella connessione al server - auth');
     }
   };
-
+  
   return (
     <div className="auth-container">
       <div className="auth-box">
-        <h1>{isLogin ? 'Accedi' : 'Registrati'}</h1>
+        <h1>{isLogin ? "Accedi" : "Registrati"}</h1>
         <form onSubmit={isLogin ? handleLogin : handleRegister}>
           {!isLogin && (
             <input
@@ -89,17 +94,25 @@ const AuthPage = () => {
             className="input-field"
           />
           <button type="submit" className="auth-button">
-            {isLogin ? 'Accedi' : 'Registrati'}
+            {isLogin ? "Accedi" : "Registrati"}
           </button>
         </form>
 
         {message && <p className="message">{message}</p>}
 
         <p className="toggle-text">
-          {isLogin ? 'Non hai un account?' : 'Hai già un account?'}
+          {isLogin ? "Non hai un account?" : "Hai già un account?"}
           <button onClick={toggleForm} className="toggle-button">
-            {isLogin ? 'Registrati qui' : 'Accedi qui'}
+            {isLogin ? "Registrati qui" : "Accedi qui"}
           </button>
+          {isLogin && (
+            <button
+              onClick={() => navigate("/forgot-password")}
+              className="forgot-password-button"
+            >
+              Password dimenticata?
+            </button>
+          )}
         </p>
       </div>
     </div>
