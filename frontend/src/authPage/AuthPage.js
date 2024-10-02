@@ -52,7 +52,7 @@ const AuthPage = () => {
   
       const data = await response.json();
       if (response.ok) {
-        localStorage.setItem('username', name); // Salva il nome
+        localStorage.setItem('username', name); 
         setMessage('Registrazione completata con successo!');
       } else {
         setMessage(data.message || 'Errore nella registrazione');

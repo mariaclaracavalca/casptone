@@ -12,12 +12,6 @@ const NavBar = () => {
     navigate("/login");  
   };
 
-  const handleLogoutClick = () => {
-    localStorage.removeItem('token'); 
-    localStorage.removeItem('username'); 
-    navigate("/login"); 
-  };
-
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -36,7 +30,7 @@ const NavBar = () => {
         
         <div className="button-login">
           {username ? (
-            <button onClick={handleLogoutClick}>{username}</button> 
+            <button onClick={() => navigate('/logout')}>{username}</button> 
           ) : (
             <button onClick={handleLoginClick}>Accedi</button>
           )}
