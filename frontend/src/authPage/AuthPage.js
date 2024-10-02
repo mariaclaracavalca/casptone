@@ -105,14 +105,6 @@ const AuthPage = () => {
           <button onClick={toggleForm} className="toggle-button">
             {isLogin ? "Registrati qui" : "Accedi qui"}
           </button>
-          {isLogin && (
-            <button
-              onClick={() => navigate("/forgot-password")}
-              className="forgot-password-button"
-            >
-              Password dimenticata?
-            </button>
-          )}
         </p>
       </div>
     </div>
