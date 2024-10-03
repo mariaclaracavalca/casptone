@@ -17,11 +17,10 @@ function App() {
           <Route path="/login" element={<AuthPage />} />
           <Route path="/user" element={<UserList />} />
           <Route path="/logout" element={<LogoutPage />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<Navigate to="/home" />} />
         </Routes>
+        <Footer />
       </div>
-      <Home />
-      <Footer />
     </Router>
   );
 }
