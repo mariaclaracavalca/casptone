@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-about">
           <h3>About EpicTest</h3>
-          <p>EpicTest è una piattaforma dedicata alla formazione nel campo del testing con risorse su TDD, BDD, automazione dei test, e molto altro.</p>
+          <p>EpicTest è una piattaforma dedicata alle informazioni sui test con risorse su TDD, BDD, automazione dei test e altro ancora.</p>
         </div>
 
         <div className="footer-links">
