@@ -1,28 +1,105 @@
 .testing-section {
-    background-color: #1c1c3c;  
-    color: white;
-    padding: 50px 0;
-    text-align: center;
+  background-color: #1c1c3c;  
+  color: white;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.testing-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testing-section h1, .testing-section h2 {
+  font-size: 2.5rem;
+  color: #f9a825;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.testing-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.testing-card {
+  background-color: #292959;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s, background-color 0.3s;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.testing-card:hover {
+  transform: translateY(-10px);
+  background-color: #353575;
+}
+
+.card-icon {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.testing-card h3 {
+  color: #f9a825;
+  margin-bottom: 15px;
+}
+
+.testing-card p {
+  font-size: 1rem;
+  color: #cfcfcf;
+}
+
+.expandable-section {
+  margin-top: 40px;
+}
+
+.toggle-button {
+  background-color: #f48fb1;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-button:hover {
+  background-color: #ec407a;
+}
+
+.extra-content {
+  margin-top: 30px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
+  to {
+    opacity: 1;
   }
-  
-  h1 {
-    font-size: 3rem;
-    color: #f9a825;  
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  p {
-    font-size: 1.2rem;
-    margin-top: 20px;
-    color: #e0e0e0; 
+
+  .testing-card {
+    width: 90%;
+    margin-bottom: 20px;
   }
-  
-  .testing-image {
-    width: 200px;
-    margin-top: 30px;
-  }
-  
+}
