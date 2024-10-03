@@ -7,12 +7,13 @@ const AuthPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // Stato per mostrare/nascondere password
   const [message, setMessage] = useState('');
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const toggleForm = () => {
-    setIsLogin(!isLogin); 
-    setMessage(''); 
+    setIsLogin(!isLogin);
+    setMessage('');
   };
 
   const handleLogin = async (e) => {
@@ -25,17 +26,16 @@ const AuthPage = () => {
         },
         body: JSON.stringify({ email, password })
       });
-
       const data = await response.json();
       if (response.ok) {
-        localStorage.setItem('token', data.token); 
+        localStorage.setItem('token', data.token);
         setMessage('Login avvenuto con successo.');
         navigate('/home');
       } else {
         setMessage(data.message || 'Errore nel login');
       }
     } catch (error) {
-      setMessage('Errore nella connessione al server');
+      setMessage('Errore nella connessione al server.');
     }
   };
 
@@ -49,19 +49,18 @@ const AuthPage = () => {
         },
         body: JSON.stringify({ name, email, password })
       });
-  
       const data = await response.json();
       if (response.ok) {
-        localStorage.setItem('username', name); 
+        localStorage.setItem('username', name);
         setMessage('Registrazione completata con successo!');
       } else {
         setMessage(data.message || 'Errore nella registrazione');
       }
     } catch (error) {
-      setMessage('Errore nella connessione al server - auth');
+      setMessage('Errore nella connessione al server.');
     }
   };
-  
+
   return (
     <div className="auth-container">
       <div className="auth-box">
@@ -85,14 +84,21 @@ const AuthPage = () => {
             required
             className="input-field"
           />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="input-field"
-          />
+          <div className="password-wrapper">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="input-field password-field"
+            />
+            <span
+              className={`eye-icon ${showPassword ? "show" : ""}`}
+              onClick={() => setShowPassword(!showPassword)}
+              style={{ pointerEvents: "auto" }} // Consente di cliccare sull'icona
+            ></span>
+          </div>
           <button type="submit" className="auth-button">
             {isLogin ? "Accedi" : "Registrati"}
           </button>
