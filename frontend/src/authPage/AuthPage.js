@@ -7,7 +7,7 @@ const AuthPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // Stato per mostrare/nascondere password
+  const [showPassword, setShowPassword] = useState(false); 
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
@@ -96,7 +96,7 @@ const AuthPage = () => {
             <span
               className={`eye-icon ${showPassword ? "show" : ""}`}
               onClick={() => setShowPassword(!showPassword)}
-              style={{ pointerEvents: "auto" }} // Consente di cliccare sull'icona
+              style={{ pointerEvents: "auto" }} 
             ></span>
           </div>
           <button type="submit" className="auth-button">

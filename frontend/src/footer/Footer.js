@@ -37,7 +37,6 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>© 2024 EpicTest. All rights reserved.</p>
         <ul className="legal-links">
-          <li><a href="/impressum">Impressum</a></li>
           <li><a href="/privacy-policy">Privacy Policy</a></li>
           <li><a href="/terms">Terms of Service</a></li>
         </ul>
