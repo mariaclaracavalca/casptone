@@ -1,42 +1,74 @@
 .bdd-tdd-section {
-    background-color: #282852;  
-    color: white;
-    padding: 60px 0;
-    text-align: center;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  h2 {
-    font-size: 2.5rem;
-    color: #f9a825;  
-  }
-  
-  .methods {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 40px;
-  }
-  
-  .method {
-    width: 45%;
-  }
-  
-  .method h3 {
-    font-size: 1.8rem;
-    color: #f9a825;
-  }
-  
-  .method p {
-    font-size: 1.1rem;
-    color: #e0e0e0;
-  }
-  
-  .method img {
-    width: 100px;
-    margin-top: 20px;
-  }
-  
+  background-color: #282852;  
+  color: white;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #f9a825;  
+}
+
+.methods {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.method {
+  width: 45%;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.method:hover {
+  transform: scale(1.05);
+}
+
+.method h3 {
+  font-size: 1.8rem;
+  color: #f9a825;
+}
+
+.method p {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+.method img {
+  width: 100px;
+  margin-top: 20px;
+}
+
+h4 {
+  font-size: 1.4rem;
+  margin-top: 20px;
+  color: #f9a825;
+}
+
+.syntaxhighlighter {
+  text-align: left;
+  margin-top: 20px;
+  background-color: #333;
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Rosa per i titoli o testo aggiuntivo */
+h3, p, h4 {
+  color: #f9a825;
+}
+
