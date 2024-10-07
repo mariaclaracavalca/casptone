@@ -29,19 +29,6 @@ const CommunitySection = () => {
             <a href="https://testautomationu.applitools.com" target="_blank" rel="noopener noreferrer">Visit Test Automation University</a>
           </div>
         </div>
-
-        <div className="video-section">
-          <h3>Community Events</h3>
-          <iframe 
-            width="560" 
-            height="315" 
-            src="https://www.youtube.com/embed/4mGw9KwX5pM" 
-            title="YouTube video player" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen
-          ></iframe>
-        </div>
       </div>
     </section>
   );
