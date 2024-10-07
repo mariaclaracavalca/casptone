@@ -1,71 +1,88 @@
 .community-section {
-    background-color: #1a1a2e;
-    color: #fff;
-    padding: 60px 0;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  h2 {
-    font-size: 2.5rem;
-    color: #ffb74d;
-  }
-  
-  p {
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    color: #d1d1d1;
-  }
-  
+  background-color: #1a1a2e;
+  color: #fff;
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #ffb74d;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #d1d1d1;
+}
+
+.community-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 30%;
+  background-color: #333;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card h3 {
+  color: #ffb74d;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #e0e0e0;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 15px;
+  color: #ff5dcc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.video-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.video-section h3 {
+  font-size: 1.8rem;
+  color: #ffb74d;
+  margin-bottom: 20px;
+}
+
+.video-section iframe {
+  border-radius: 10px;
+  border: 2px solid #ff5dcc;
+}
+
+@media (max-width: 768px) {
   .community-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .card {
-    width: 30%;
-    background-color: #333;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    margin-bottom: 20px;
   }
-  
-  .card h3 {
-    color: #ffb74d;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-  }
-  
-  .card p {
-    font-size: 1rem;
-    color: #e0e0e0;
-  }
-  
-  .card a {
-    display: inline-block;
-    margin-top: 15px;
-    color: #ffb74d;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .card a:hover {
-    text-decoration: underline;
-  }
-  
-  .video-section {
-    margin-top: 40px;
-    text-align: center;
-  }
-  
-  .video-section iframe {
-    border-radius: 10px;
-    border: 2px solid #ffb74d;
-  }
-  
+}

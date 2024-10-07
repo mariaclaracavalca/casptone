@@ -28,10 +28,22 @@ const CommunitySection = () => {
             <p>Learn about automation testing through free courses provided by Test Automation University.</p>
             <a href="https://testautomationu.applitools.com" target="_blank" rel="noopener noreferrer">Visit Test Automation University</a>
           </div>
+
+          <div className="card">
+            <h3>Software Testing Blog</h3>
+            <p>Explore articles, tutorials, and interviews with leading software testers around the world.</p>
+            <a href="https://blog.testproject.io" target="_blank" rel="noopener noreferrer">Visit Blog</a>
+          </div>
+
+          <div className="card">
+            <h3>Testing YouTube Channels</h3>
+            <p>Watch tutorials and talks from prominent figures in the software testing world on YouTube.</p>
+            <a href="https://www.youtube.com/c/TestAutomationU" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default CommunitySection;
