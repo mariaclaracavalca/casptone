@@ -14,17 +14,16 @@ const Footer = () => {
           <div className="footer-column">
             <h3>Resources</h3>
             <ul>
-              <li><a href="/courses">All Courses</a></li>
-              <li><a href="/documentation">Documentation</a></li>
-              <li><a href="/community">Community</a></li>
+              <li><a href="#testing-section">Documentation</a></li>
+              <li><a href="#community-section">Community</a></li>
             </ul>
           </div>
 
           <div className="footer-column">
             <h3>Support</h3>
             <ul>
-              <li><a href="/faq">FAQ</a></li>
-              <li><a href="/contact">Contact Us</a></li>
+              <li>FAQ</li>
+              <li>Contact Us</li>
             </ul>
           </div>
         </div>
@@ -37,8 +36,8 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>© 2024 EpicTest. All rights reserved.</p>
         <ul className="legal-links">
-          <li><a href="/privacy-policy">Privacy Policy</a></li>
-          <li><a href="/terms">Terms of Service</a></li>
+          <li>Privacy Policy</li>
+          <li>Terms of Service</li>
         </ul>
       </div>
     </footer>
