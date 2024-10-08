@@ -6,6 +6,7 @@ import AuthMiddleware from '../middleware/AuthMiddleware.js';
 import { body, validationResult } from 'express-validator'; 
 
 const router = express.Router();
+
 router.post('/api/users', [
   body('name').notEmpty().withMessage('Il nome è richiesto'),
   body('email').isEmail().withMessage('Email non valida'),
@@ -30,7 +31,7 @@ router.post('/api/users', [
     const newUser = new User({ name, email, password: hashedPassword });
     await newUser.save();
 
-    res.status(201).json({ id: newUser._id, name: newUser.name, email: newUser.email });
+    res.status(201).json({ userId: newUser._id, name: newUser.name, email: newUser.email });
   } catch (error) {
     res.status(500).json({ message: 'Errore del server. Riprova più tardi.' });
   }
@@ -47,63 +48,42 @@ router.post('/api/users/login', async (req, res) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(401).json({ message: 'Password non corretta. Riprova.' });
+      return res.status(401).json({ message: 'Password errata.' });
     }
 
-    const token = jwt.sign(
-      { userId: user._id, email: user.email },
-      process.env.JWT_SECRET,
-      { expiresIn: '1h' }
-    );
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-    res.status(200).json({
-      message: 'Login avvenuto con successo',
-      token: token
-    });
+    res.status(200).json({ token, userId: user._id, name: user.name, email: user.email });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: 'Errore del server. Riprova più tardi.' });
   }
 });
 
+router.put('/api/users/:id', AuthMiddleware, async (req, res) => { // non funziona
+  const { id } = req.params;
+  const { name, email, password } = req.body;
 
-router.get('/api/users', AuthMiddleware, async (req, res) => {
   try {
-    const users = await User.find().select('-password'); 
-    res.status(200).json(users);
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: 'Utente non trovato.' });
+    }
+
+    user.name = name || user.name;
+    user.email = email || user.email;
+
+    if (password) {
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(password, salt);
+    }
+
+    await user.save();
+
+    res.status(200).json({ message: 'Profilo aggiornato con successo.', user });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: 'Errore durante l\'aggiornamento del profilo.' });
   }
 });
 
-router.get('/api/users/:id', AuthMiddleware, async (req, res) => {
-  try {
-    const user = await User.findById(req.params.id).select('-password');
-    if (!user) return res.status(404).json({ message: 'Utente non trovato' });
-    res.status(200).json(user);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-router.put('/api/users/:id', AuthMiddleware, async (req, res) => {
-  try {
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
-    if (!updatedUser) return res.status(404).json({ message: 'Utente non trovato' });
-    res.status(200).json(updatedUser);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-});
-
-router.delete('/api/users/:id', AuthMiddleware, async (req, res) => {
-  try {
-    const deletedUser = await User.findByIdAndDelete(req.params.id);
-    if (!deletedUser) return res.status(404).json({ message: 'Utente non trovato' });
-    res.status(200).json({ message: 'Utente cancellato con successo' });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
 
 export default router;
