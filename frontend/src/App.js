@@ -7,6 +7,7 @@ import LogoutPage from './logout/LogoutPage';
 import Home from './home/home'; // Correzione nome import con lettera maiuscola
 import Footer from './footer/Footer'; 
 import PrivateRoute from './PrivateRoute'; // Importa il componente PrivateRoute
+import QuizResults from './quiz/QuizResults'; // Importa la pagina QuizResults
 import './App.css'; // Assicurati che gli stili di App.css siano applicati
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             {/* Rotte protette */}
             <Route path="/user" element={<PrivateRoute element={UserList} />} />
             <Route path="/logout" element={<PrivateRoute element={LogoutPage} />} />
+            <Route path="/quiz-results" element={<PrivateRoute element={QuizResults} />} />
             
             {/* Rotta di fallback */}
             <Route path="*" element={<Navigate to="/home" />} />

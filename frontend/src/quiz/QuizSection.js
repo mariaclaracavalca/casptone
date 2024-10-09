@@ -7,6 +7,7 @@ const StyledQuizSection = () => {
   const [showScore, setShowScore] = useState(false);
   const [showAnswers, setShowAnswers] = useState(false);
   const [shuffledOptions, setShuffledOptions] = useState([]);
+  const [userResponses, setUserResponses] = useState([]); // Traccia le risposte dell'utente
 
   const questions = [
     {
@@ -74,10 +75,19 @@ const StyledQuizSection = () => {
     setShuffledOptions(shuffled);
   };
 
-  const handleAnswerOptionClick = (isCorrect) => {
+  const handleAnswerOptionClick = (isCorrect, answerText) => {
     if (isCorrect) {
       setScore(score + 1);
     }
+
+    // Aggiorna la risposta dell'utente
+    const newResponse = {
+      question: questions[currentQuestion].questionText,
+      answer: answerText,
+      isCorrect: isCorrect
+    };
+
+    setUserResponses([...userResponses, newResponse]);
     setShowAnswers(true);
   };
 
@@ -87,6 +97,7 @@ const StyledQuizSection = () => {
       setShowAnswers(false);
     } else {
       setShowScore(true);
+      submitQuizResults(); // Invia i risultati al backend
     }
   };
 
@@ -102,6 +113,34 @@ const StyledQuizSection = () => {
     setCurrentQuestion(0);
     setShowScore(false);
     setShowAnswers(false);
+    setUserResponses([]); // Resetta le risposte
+  };
+
+  // Funzione per inviare i risultati al backend
+  const submitQuizResults = async () => {
+    const quizData = {
+      score: score,
+      totalQuestions: questions.length,
+      responses: userResponses
+    };
+
+    try {
+      const response = await fetch('http://localhost:8080/api/quiz/results', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(quizData)
+      });
+
+      if (response.ok) {
+        console.log('Quiz results successfully submitted.');
+      } else {
+        console.error('Failed to submit quiz results.');
+      }
+    } catch (error) {
+      console.error('Error submitting quiz results:', error);
+    }
   };
 
   return (
@@ -123,7 +162,7 @@ const StyledQuizSection = () => {
               {shuffledOptions.map((option, index) => (
                 <button
                   key={index}
-                  onClick={() => handleAnswerOptionClick(option.isCorrect)}
+                  onClick={() => handleAnswerOptionClick(option.isCorrect, option.answerText)}
                   className={showAnswers ? (option.isCorrect ? 'quiz-correct-answer' : 'quiz-incorrect-answer') : ''}
                 >
                   {option.answerText} {showAnswers && (option.isCorrect ? "✓" : "✕")}

@@ -26,7 +26,11 @@ const NavBar = () => {
           <Nav className="me-auto">
             {/* Mostra "Quiz" solo se l'utente è autenticato */}
             {isAuthenticated && (
+              <>
               <Nav.Link className="quiz-button" href="/home#styled-quiz-section">Quiz</Nav.Link>
+              <Nav.Link href="/quiz-results">Risultati Quiz</Nav.Link>
+              </>
+              
             )}
             <Nav.Link href="/home#testing-section">What is Testing</Nav.Link>
             <Nav.Link href="/home#bdd-tdd-section">BDD & TDD</Nav.Link>
