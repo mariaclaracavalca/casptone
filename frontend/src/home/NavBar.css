@@ -44,6 +44,17 @@ body {
   background-color: var(--button-hover-bg);
 }
 
+
+.quiz-button {
+  padding: var(--spacing-sm) var(--spacing-md) !important;
+  background-color: var(--accent-color) !important; /* Usa la nuova variabile */
+  color: var(--text-color) !important;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  display: block;
+}
+
 /* Stili responsivi */
 @media (max-width: 768px) {
   .nav-link {
@@ -54,4 +65,5 @@ body {
     font-size: var(--font-size-sm);
     padding: var(--spacing-sm) var(--spacing-md);
   }
+
 }

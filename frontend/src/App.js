@@ -6,6 +6,7 @@ import UserList from './user/UserList';
 import LogoutPage from './logout/LogoutPage';
 import Home from './home/home'; // Correzione nome import con lettera maiuscola
 import Footer from './footer/Footer'; 
+import PrivateRoute from './PrivateRoute'; // Importa il componente PrivateRoute
 import './App.css'; // Assicurati che gli stili di App.css siano applicati
 
 function App() {
@@ -15,10 +16,15 @@ function App() {
         <NavBar />
         <div className="App-content"> {/* Sezione contenuto principale */}
           <Routes>
+            {/* Rotte pubbliche */}
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<AuthPage />} />
-            <Route path="/user" element={<UserList />} />
-            <Route path="/logout" element={<LogoutPage />} />
+            
+            {/* Rotte protette */}
+            <Route path="/user" element={<PrivateRoute element={UserList} />} />
+            <Route path="/logout" element={<PrivateRoute element={LogoutPage} />} />
+            
+            {/* Rotta di fallback */}
             <Route path="*" element={<Navigate to="/home" />} />
           </Routes>
         </div>

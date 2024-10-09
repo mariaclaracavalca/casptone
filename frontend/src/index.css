@@ -80,6 +80,10 @@ button:focus {
   color: var(--text-color);
 }
 
+.text-black {
+  color: var(--black-100);
+}
+
 /* Dimensioni del testo */
 .font-base {
   font-size: var(--font-size-base);

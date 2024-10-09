@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './AuthPage.css'; 
+import './AuthPage.css'; // Per stili personalizzati, inclusa l'icona ad occhio
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -80,8 +80,6 @@ const AuthPage = () => {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
   
-    console.log("Token:", token); // Aggiungi questo log per il debug
-  
     if (!token || !userId) {
       setMessage('Token mancante o scaduto. Si prega di accedere nuovamente.');
       return;
@@ -108,12 +106,11 @@ const AuthPage = () => {
       setMessage('Errore nella connessione al server edit.');
     }
   };
-  
-  
+
   return (
-    <div className="auth-page-container">
-      <div className="auth-page-box">
-        <h1>{isEdit ? "Modifica Profilo" : (isLogin ? "Accedi" : "Registrati")}</h1>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <div className="auth-page-box p-4 shadow-lg bg-white rounded">
+        <h1 className="mb-4 text-black">{isEdit ? "Modifica Profilo" : (isLogin ? "Accedi" : "Registrati")}</h1>
         <form onSubmit={isEdit ? handleEdit : (isLogin ? handleLogin : handleRegister)}>
           {!isLogin && !isEdit && (
             <input
@@ -122,7 +119,7 @@ const AuthPage = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required={!isLogin}
-              className="auth-page-input-field"
+              className="form-control mb-3"
             />
           )}
           <input
@@ -131,54 +128,54 @@ const AuthPage = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="auth-page-input-field"
+            className="form-control mb-3"
           />
-          <div className="auth-page-password-wrapper">
+          <div className="auth-page-password-wrapper position-relative mb-3">
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required={!isEdit} 
-              className="auth-page-input-field auth-page-password-field"
+              className="form-control"
             />
             <span
               className={`auth-page-eye-icon ${showPassword ? "show" : ""}`}
               onClick={() => setShowPassword(!showPassword)}
-              style={{ pointerEvents: "auto" }}
+              style={{ cursor: "pointer", position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)" }}
             ></span>
           </div>
-          <button type="submit" className="auth-page-button">
+          <button type="submit" className="button-login btn btn-outline-ligh w-100">
             {isEdit ? "Salva Modifiche" : (isLogin ? "Accedi" : "Registrati")}
           </button>
         </form>
 
-        {message && <p className="auth-page-message">{message}</p>}
+        {message && <div className="text-danger mt-3">{message}</div>}
 
         {!isEdit && (
-          <p className="auth-page-toggle-text">
+          <div className="mt-1 text-black">
             {isLogin ? "Non hai un account?" : "Hai già un account?"}
-            <button onClick={toggleForm} className="auth-page-toggle-button">
+            <button onClick={toggleForm} className="btn btn-link">
               {isLogin ? "Registrati qui" : "Accedi qui"}
             </button>
-          </p>
+          </div>
         )}
 
         {isLogin && !isEdit && (
-          <p className="auth-page-toggle-text">
+          <div className="mt-1 text-black">
             Vuoi modificare il profilo?
-            <button onClick={() => setIsEdit(true)} className="auth-page-toggle-button">
+            <button onClick={() => setIsEdit(true)} className="btn btn-link">
               Modifica qui
             </button>
-          </p>
+          </div>
         )}
 
         {isEdit && (
-          <p className="auth-page-toggle-text">
-            <button onClick={() => { setIsEdit(false); setIsLogin(true); }} className="auth-page-toggle-button">
+          <div className="mt-3 text-black">
+            <button onClick={() => { setIsEdit(false); setIsLogin(true); }} className="btn btn-link">
               Indietro
             </button>
-          </p>
+          </div>
         )}
       </div>
     </div>

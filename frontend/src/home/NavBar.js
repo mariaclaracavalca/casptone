@@ -8,6 +8,8 @@ const NavBar = () => {
   const navigate = useNavigate();
   
   const username = localStorage.getItem('username');
+  const isAuthenticated = !!localStorage.getItem('token'); // Controllo se c'è un token salvato
+
 
   const handleLoginClick = () => {
     navigate("/login");
@@ -22,10 +24,14 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#testing-section">What is Testing</Nav.Link>
-            <Nav.Link href="#bdd-tdd-section">BDD & TDD</Nav.Link>
-            <Nav.Link href="#automation-section">Testing Automation</Nav.Link>
-            <Nav.Link href="#community-section">Community</Nav.Link>
+            {/* Mostra "Quiz" solo se l'utente è autenticato */}
+            {isAuthenticated && (
+              <Nav.Link className="quiz-button" href="/home#styled-quiz-section">Quiz</Nav.Link>
+            )}
+            <Nav.Link href="/home#testing-section">What is Testing</Nav.Link>
+            <Nav.Link href="/home#bdd-tdd-section">BDD & TDD</Nav.Link>
+            <Nav.Link href="/home#automation-section">Testing Automation</Nav.Link>
+            <Nav.Link href="/home#community-section">Community</Nav.Link>
           </Nav>
           <Nav>
             {username ? (
