@@ -5,13 +5,25 @@
     --primary-color: #100323;
     --secondary-color: #a971ff;
     --text-color: #ffffff;
+    --white-100: #f5f5f5;
+    --gray-100: #e0e0e0;
+    --black-100: #333333;
     --hover-color: #d3bfff;
     --button-bg: #a971ff;
     --button-hover-bg: #d3bfff;
+    --section-title-text-color: #f9a825;
+    --section-background-color: #100323;
+    --section-background-color2: #282852;
+    --highlight-color: #ffb74d; /* Colore per i titoli, punteggi, ecc. */
+    --accent-color: #ff5dcc; /* Colore per i pulsanti principali */
+    --accent-hover-color: #ff8de6; /* Colore per l'hover dei pulsanti */
+    --disabled-color: #ccc; /* Colore per i pulsanti disabilitati */
+    --hover-bg-color: #ffcc7a; /* Hover per i pulsanti di navigazione */
   }
   
   /* Tipografia */
   :root {
+    --font-family-arial: "Arial", sans-serif; /* Font di base */
     --font-size-base: 16px;
     --font-size-sm: 14px;
     --font-size-lg: 18px;
@@ -21,7 +33,7 @@
   :root {
     --spacing-sm: 8px;
     --spacing-md: 16px;
-    --spacing-lg: 24px;
+    --spacing-lg: 80px;
   }
   
   /* Border Radius */

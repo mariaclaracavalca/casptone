@@ -21,7 +21,7 @@ const TestingSection = () => {
   return (
     <section id="testing-section" className="testing-section">
       <div className="container">
-        <h1>What is Software Testing?</h1>
+        <h1 className='section-title-text-color'>What is Software Testing?</h1>
         <p>
           Software testing is a crucial process in the development of applications.
           It involves identifying bugs, ensuring the quality and reliability of software,
@@ -31,7 +31,7 @@ const TestingSection = () => {
         <div className="card-container">
           <div className="testing-card">
             <img src={functionalIcon} alt="Functional Testing" className="card-icon" />
-            <h3>Functional Testing</h3>
+            <h3 className='section-title-text-color'>Functional Testing</h3>
             <p>
               Verifies that the software behaves according to its specified functional requirements.
             </p>
@@ -53,7 +53,7 @@ const TestingSection = () => {
 
           <div className="testing-card">
             <img src={automationIcon} alt="Automation Testing" className="card-icon" />
-            <h3>Automation Testing</h3>
+            <h3 className='section-title-text-color'>Automation Testing</h3>
             <p>
               Automates repetitive tasks using tools like Selenium, Cypress, and more.
             </p>
@@ -82,7 +82,7 @@ const TestingSection = () => {
 
           <div className="testing-card">
             <img src={testIcon} alt="Integration Testing" className="card-icon" />
-            <h3>Integration Testing</h3>
+            <h3 className='section-title-text-color'>Integration Testing</h3>
             <p>
               Ensures that various software modules work together as expected.
             </p>

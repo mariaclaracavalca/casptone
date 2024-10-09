@@ -1,9 +1,11 @@
+@import '../variables.css'; /* Importa le variabili */
+
 .auth-page-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f5f5f5; 
+  background-color: var(--white-100); 
 }
 
 .auth-page-box {

@@ -1,7 +1,10 @@
+@import '../variables.css'; /* Importiamo le variabili */
+
+/* Sezione Testing */
 .testing-section {
-  background-color: #1c1c3c;  
-  color: white;
-  padding: 50px 0;
+  background-color: var(--section-background-color); /* Colore di sfondo dal file delle variabili */
+  color: var(--text-color);
+  padding: var(--spacing-lg) 0;
   text-align: center;
 }
 
@@ -10,29 +13,30 @@
   margin: 0 auto;
 }
 
-.testing-section h1, .testing-section h2 {
+/* .testing-section h1, .testing-section h2 {
   font-size: 2.5rem;
-  color: #f9a825;
+  color: var(--hover-color);
   font-weight: 500;
-  margin-bottom: 30px;
-}
+  margin-bottom: var(--spacing-lg);
+} */
 
 .testing-section p {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #e0e0e0;
+  color: #e0e0e0; /* Puoi decidere di aggiungere anche questo come variabile */
 }
 
+/* Contenitore per le schede */
 .card-container {
   display: flex;
   justify-content: space-around;
-  margin-top: 40px;
+  margin-top: var(--spacing-lg);
 }
 
 .testing-card {
-  background-color: #292959;
-  border-radius: 10px;
-  padding: 20px;
+  background-color: #292959; /* Questo colore è unico, puoi decidere se aggiungerlo alle variabili */
+  border-radius: var(--border-radius); /* Raggio del bordo dalle variabili */
+  padding: var(--spacing-md);
   width: 250px;
   text-align: center;
   transition: transform 0.3s, background-color 0.3s;
@@ -41,45 +45,50 @@
 
 .testing-card:hover {
   transform: translateY(-10px);
-  background-color: #353575;
+  background-color: #353575; /* Anche questo colore può diventare una variabile se vuoi */
 }
 
 .card-icon {
   width: 60px;
-  margin-bottom: 15px;
+  margin-bottom: var(--spacing-md);
 }
 
 .testing-card h3 {
-  color: #f9a825;
-  margin-bottom: 15px;
+  margin-bottom: var(--spacing-md);
 }
 
 .testing-card p {
-  font-size: 1rem;
+  font-size: var(--font-size-base); /* Dimensione del testo principale */
   color: #cfcfcf;
+  text-align: center;
+}
+
+.extra-info p {
+  text-align: left;
 }
 
 .expandable-section {
-  margin-top: 40px;
+  margin-top: var(--spacing-lg);
 }
 
+/* Bottone personalizzato */
 .toggle-button {
-  background-color: #f48fb1;
-  color: white;
-  padding: 10px 20px;
+  background-color: var(--button-bg); /* Usa il colore di sfondo del bottone */
+  color: var(--text-color);
+  padding: var(--spacing-sm) var(--spacing-md);
   border: none;
-  border-radius: 5px;
-  font-size: 1.1rem;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-lg); /* Font più grande per il bottone */
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .toggle-button:hover {
-  background-color: #ec407a;
+  background-color: var(--button-hover-bg); /* Colore di hover per il bottone */
 }
 
 .extra-content {
-  margin-top: 30px;
+  margin-top: var(--spacing-lg);
   animation: fadeIn 0.5s ease-in-out;
 }
 
@@ -92,6 +101,7 @@
   }
 }
 
+/* Stili responsivi */
 @media (max-width: 768px) {
   .card-container {
     flex-direction: column;
@@ -100,6 +110,6 @@
 
   .testing-card {
     width: 90%;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-md);
   }
 }
