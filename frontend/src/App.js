@@ -4,7 +4,7 @@ import NavBar from './home/NavBar';
 import AuthPage from './authPage/AuthPage'; 
 import UserList from './user/UserList'; 
 import LogoutPage from './logout/LogoutPage';
-import Home from './home/Home'; 
+import Home from './home/home';
 import Footer from './footer/Footer';
 
 function App() {
