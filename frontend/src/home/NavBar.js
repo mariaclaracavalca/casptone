@@ -1,42 +1,46 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom'; 
-import logo from '../assets/logo.png'; 
-import "./NavBar.css";
+import { useNavigate } from 'react-router-dom';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import logo from '../assets/logo.png';
+import './NavBar.css';
 
 const NavBar = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   
   const username = localStorage.getItem('username');
 
   const handleLoginClick = () => {
-    navigate("/login");  
+    navigate("/login");
   };
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <div className="logo">
-          <a href="/">
-            <img src={logo} alt="Logo" className="navbar-logo" /> 
-          </a>
-        </div>
-
-        <ul className="nav-links">
-          <li><a href="#testing-section">What is Testing</a></li>
-          <li><a href="#bdd-tdd-section">BDD & TDD</a></li>
-          <li><a href="#automation-section">Testing Automation</a></li>
-          <li><a href="#community-section">Community</a></li>
-        </ul>
-        
-        <div className="button-login">
-          {username ? (
-            <button onClick={() => navigate('/logout')}>{username}</button> 
-          ) : (
-            <button onClick={handleLoginClick}>Accedi</button>
-          )}
-        </div>
-      </div>
-    </nav>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
+      <Container>
+        <Navbar.Brand href="/">
+          <img src={logo} alt="Logo" className="navbar-logo" /> {/* Logo */}
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#testing-section">What is Testing</Nav.Link>
+            <Nav.Link href="#bdd-tdd-section">BDD & TDD</Nav.Link>
+            <Nav.Link href="#automation-section">Testing Automation</Nav.Link>
+            <Nav.Link href="#community-section">Community</Nav.Link>
+          </Nav>
+          <Nav>
+            {username ? (
+              <Button className="button-login" variant="outline-light" onClick={() => navigate('/logout')}>
+                {username}
+              </Button>
+            ) : (
+              <Button className="button-login" variant="outline-light" onClick={handleLoginClick}>
+                Accedi
+              </Button>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
