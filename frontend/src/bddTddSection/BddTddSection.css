@@ -1,7 +1,10 @@
+@import '../variables.css'; /* Importiamo le variabili */
+
+/* Sezione BDD-TDD */
 .bdd-tdd-section {
-  background-color: #282852;  
-  color: white;
-  padding: 60px 0;
+  background-color: var(--section-background-color2); /* Colore di sfondo dal file delle variabili */
+  color: var(--text-color);
+  padding: var(--spacing-lg) 0;
   text-align: center;
 }
 
@@ -12,20 +15,21 @@
 
 h2 {
   font-size: 2.5rem;
-  color: #f9a825;  
+  color: var(--hover-color); /* Usa il colore hover per i titoli */
 }
 
+/* Metodi (BDD e TDD) */
 .methods {
   display: flex;
   justify-content: space-around;
-  margin-top: 40px;
+  margin-top: var(--spacing-lg);
 }
 
 .method {
   width: 45%;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 8px;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
   transition: transform 0.3s ease;
 }
 
@@ -35,32 +39,33 @@ h2 {
 
 .method h3 {
   font-size: 1.8rem;
-  color: #f9a825;
+  color: var(--hover-color); /* Colore del titolo dei metodi */
 }
 
 .method p {
-  font-size: 1.1rem;
-  color: #e0e0e0;
+  font-size: var(--font-size-base); /* Dimensione del testo base */
+  color: #e0e0e0; /* Puoi aggiungere questa variabile se lo desideri */
 }
 
 .method img {
   width: 100px;
-  margin-top: 20px;
+  margin-top: var(--spacing-md);
 }
 
 h4 {
   font-size: 1.4rem;
-  margin-top: 20px;
-  color: #f9a825;
+  margin-top: var(--spacing-md);
+  color: var(--hover-color); /* Colore per i sottotitoli */
 }
 
+/* Stile per il blocco di codice */
 .syntaxhighlighter {
   text-align: left;
-  margin-top: 20px;
-  background-color: #333;
-  padding: 15px;
-  border-radius: 8px;
-  color: white;
+  margin-top: var(--spacing-md);
+  background-color: var(--black-100);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  color: var(--text-color); /* Testo bianco */
 }
 
 code {
@@ -68,6 +73,5 @@ code {
 }
 
 h3, p, h4 {
-  color: #f9a825;
+  color: var(--hover-color); /* Colore per titoli e testi */
 }
-

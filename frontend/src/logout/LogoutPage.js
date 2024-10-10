@@ -15,7 +15,7 @@ const LogoutPage = () => {
     <div className="logout-container">
       <div className="logout-box">
         <h1>Sei sicuro di voler disconnetterti?</h1>
-        <button className="logout-button" onClick={handleLogout}>Logout</button>
+        <button className="button-login btn btn-outline-light" onClick={handleLogout}>Logout</button>
       </div>
     </div>
   );

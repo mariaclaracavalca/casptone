@@ -1,8 +1,10 @@
+@import '../variables.css'; /* Importa le variabili */
 
+/* Footer */
 .footer {
-  background-color: #100323;
-  color: #ffffff;
-  padding: 20px 20px; 
+  background-color: var(--section-background-color); /* Usa la variabile per il background */
+  color: var(--text-color); /* Colore del testo */
+  padding: var(--spacing-md) var(--spacing-lg); /* Usa la spaziatura definita */
   font-family: "Arial", sans-serif;
   text-align: center;
 }
@@ -14,25 +16,25 @@
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: flex-start;
-  padding-bottom: 10px;
+  padding-bottom: var(--spacing-sm); /* Usa la spaziatura piccola */
 }
 
 .footer-about {
   flex: 1;
   min-width: 250px;
   max-width: 300px;
-  margin-bottom: 10px;
+  margin-bottom: var(--spacing-sm); /* Usa la spaziatura piccola */
 }
 
 .footer-about h3 {
-  color: #ffa100;
-  font-size: 18px;
-  margin-bottom: 5px; 
+  color: var(--highlight-color); /* Usa la variabile per il colore di evidenza */
+  font-size: var(--font-size-lg); /* Usa la dimensione grande del font */
+  margin-bottom: var(--spacing-sm); /* Usa la spaziatura piccola */
 }
 
 .footer-about p {
-  font-size: 14px;
-  line-height: 1.3; 
+  font-size: var(--font-size-sm); /* Usa la dimensione piccola del font */
+  line-height: 1.3;
 }
 
 .footer-links {
@@ -43,13 +45,13 @@
 }
 
 .footer-column {
-  margin: 0 15px; 
+  margin: 0 var(--spacing-sm); /* Usa la spaziatura piccola */
 }
 
 .footer-column h3 {
-  color: #ffa100;
-  font-size: 16px;
-  margin-bottom: 5px; 
+  color: var(--highlight-color); /* Colore di evidenza */
+  font-size: var(--font-size-base); /* Usa la dimensione base del font */
+  margin-bottom: var(--spacing-sm); /* Usa la spaziatura piccola */
 }
 
 .footer-column ul {
@@ -58,34 +60,34 @@
 }
 
 .footer-column li {
-  margin-bottom: 5px;
+  margin-bottom: var(--spacing-sm); /* Usa la spaziatura piccola */
 }
 
 .footer-column li a {
-  color: #ffffff;
+  color: var(--text-color);
   text-decoration: none;
-  font-size: 14px;
+  font-size: var(--font-size-sm); /* Usa la dimensione piccola del font */
 }
 
 .footer-column li a:hover {
-  color: #ffa100;
+  color: var(--highlight-color); /* Usa la variabile per l'hover */
 }
 
 .footer-motto {
-  margin: 10px 0; 
-  font-size: 14px;
-  color: #d3bfff;
+  margin: var(--spacing-sm) 0;
+  font-size: var(--font-size-sm); /* Usa la dimensione piccola del font */
+  color: var(--hover-color); /* Colore del motto */
 }
 
 .footer-bottom {
   text-align: center;
-  padding: 10px 0;
-  border-top: 1px solid #ffa100;
+  padding: var(--spacing-md) 0;
+  border-top: 1px solid var(--highlight-color); /* Usa il colore del bordo */
 }
 
 .footer-bottom p {
-  margin-bottom: 5px; 
-  font-size: 14px;
+  margin-bottom: var(--spacing-sm); /* Usa la spaziatura piccola */
+  font-size: var(--font-size-sm); /* Usa la dimensione piccola del font */
 }
 
 .legal-links {
@@ -96,15 +98,15 @@
 }
 
 .legal-links li {
-  margin: 0 10px; 
+  margin: 0 var(--spacing-sm); /* Usa la spaziatura piccola */
 }
 
 .legal-links li a {
-  color: #ffffff;
+  color: var(--text-color);
   text-decoration: none;
   font-size: 12px;
 }
 
 .legal-links li a:hover {
-  color: #ffa100;
+  color: var(--highlight-color); /* Colore di hover */
 }

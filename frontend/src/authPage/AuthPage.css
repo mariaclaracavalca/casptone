@@ -1,59 +1,30 @@
-.auth-page-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f5f5f5; 
-}
+@import '../variables.css'; /* Importa le variabili */
 
+/* Contenitore principale della pagina */
 .auth-page-box {
-  background-color: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   width: 400px;
-  text-align: center;
 }
 
-h1 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.auth-page-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.auth-page-input-field {
+/* Bottone personalizzato */
+.auth-page-button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
   padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
   font-size: 16px;
-  width: 60%; 
+  border-radius: 5px;
 }
 
+.auth-page-button:hover {
+  background-color: var(--accent-hover-color);
+}
+
+/* Gestione dell'icona "mostra/nascondi password" */
 .auth-page-password-wrapper {
   position: relative;
-  width: 60%; 
-}
-
-.auth-page-password-field {
-  width: 100%; 
-  padding: 10px 40px 10px 10px; 
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
 }
 
 .auth-page-eye-icon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
   width: 20px;
   height: 20px;
   background: url('https://cdn-icons-png.flaticon.com/512/159/159604.png') no-repeat center center;
@@ -63,42 +34,4 @@ h1 {
 .auth-page-eye-icon.show {
   background: url('https://cdn-icons-png.flaticon.com/512/709/709612.png') no-repeat center center;
   background-size: contain;
-}
-
-.auth-page-button {
-  padding: 8px;
-  background-color: #6c63ff;
-  color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 30%; 
-}
-
-.auth-page-button:hover {
-  background-color: #4e45d1;
-}
-
-.auth-page-toggle-text {
-  margin-top: 20px;
-  color: #666;
-}
-
-.auth-page-toggle-button {
-  background: none;
-  border: none;
-  color: #6c63ff;
-  cursor: pointer;
-  font-size: 16px;
-  margin-left: 5px;
-}
-
-.auth-page-toggle-button:hover {
-  color: #4e45d1;
-}
-
-.auth-page-message {
-  margin-top: 15px;
-  color: #e74c3c; 
 }

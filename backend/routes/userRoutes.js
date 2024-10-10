@@ -2,10 +2,74 @@ import express from 'express';
 import bcrypt from 'bcryptjs'; 
 import jwt from 'jsonwebtoken'; 
 import User from '../models/User.js'; 
+import QuizResult from '../models/QuizResult.js'; // Importa il modello dei risultati del quiz
 import AuthMiddleware from '../middleware/AuthMiddleware.js';
 import { body, validationResult } from 'express-validator'; 
 
 const router = express.Router();
+
+// Aggiungi questa nuova rotta per recuperare i risultati del quiz per l'utente loggato
+router.get('/api/quiz/results', AuthMiddleware, async (req, res) => {
+  try {
+    const quizResults = await QuizResult.find({ userId: req.user.userId }).sort({ date: -1 }); // Ordina per data
+    if (!quizResults) {
+      return res.status(404).json({ message: 'Nessun risultato trovato.' });
+    }
+
+    res.status(200).json(quizResults);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Errore nel recupero dei risultati del quiz.' });
+  }
+});
+
+
+// Endpoint per inviare i risultati del quiz
+router.post('/api/quiz/results', AuthMiddleware, async (req, res) => {
+  const { score, totalQuestions, responses } = req.body;
+  
+  try {
+    // Crea un nuovo risultato del quiz
+    const quizResult = new QuizResult({
+      userId: req.user.userId, // ID utente preso dal token JWT
+      score,
+      totalQuestions,
+      responses
+    });
+
+    // Salva il risultato del quiz nel database
+    await quizResult.save();
+
+    res.status(201).json({ message: 'Risultato del quiz salvato con successo.' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Errore del server durante il salvataggio dei risultati del quiz.' });
+  }
+});
+
+// Endpoint DELETE per eliminare un risultato del quiz
+router.delete('/api/quiz/results/:id', AuthMiddleware, async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const quizResult = await QuizResult.findById(id);
+    if (!quizResult) {
+      return res.status(404).json({ message: 'Risultato del quiz non trovato.' });
+    }
+
+    // Verifica che l'utente stia cercando di eliminare il proprio risultato
+    if (quizResult.userId.toString() !== req.user.userId) {
+      return res.status(403).json({ message: 'Non hai il permesso di eliminare questo risultato.' });
+    }
+
+    await quizResult.remove();
+    res.status(200).json({ message: 'Risultato del quiz eliminato con successo.' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Errore del server durante l\'eliminazione del risultato del quiz.' });
+  }
+});
+
 
 router.post('/api/users', [
   body('name').notEmpty().withMessage('Il nome è richiesto'),
@@ -59,7 +123,7 @@ router.post('/api/users/login', async (req, res) => {
   }
 });
 
-router.put('/api/users/:id', AuthMiddleware, async (req, res) => { // non funziona
+router.put('/api/users/:id', AuthMiddleware, async (req, res) => {
   const { id } = req.params;
   const { name, email, password } = req.body;
 
@@ -84,6 +148,5 @@ router.put('/api/users/:id', AuthMiddleware, async (req, res) => { // non funzio
     res.status(500).json({ message: 'Errore durante l\'aggiornamento del profilo.' });
   }
 });
-
 
 export default router;

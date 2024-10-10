@@ -1,8 +1,131 @@
+@import './variables.css'; /* Importiamo il file delle variabili */
 
-body {
-  background-color: #100323;
+/* Stili di base globali */
+* {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif; 
-  color: #fff; 
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-arial);
+  background-color: var(--primary-color); /* Usa il colore primario */
+  color: var(--text-color); /* Colore del testo */
+}
+
+/* Titoli */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.section-title-text-color {
+  color: var(--section-title-text-color);
+}
+
+/* Paragrafi */
+p {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Link */
+a {
+  color: var(--hover-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--button-hover-bg);
+}
+
+/* Pulsanti */
+button {
+  font-size: var(--font-size-base);
+  border: none;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+
+/* ---- Classi generiche che usano le variabili ---- */
+
+/* Colori di sfondo */
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
+
+/* Colori del testo */
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-secondary {
+  color: var(--secondary-color);
+}
+
+.text-hover {
+  color: var(--hover-color);
+}
+
+.text-white {
+  color: var(--text-color);
+}
+
+.text-black {
+  color: var(--black-100);
+}
+
+/* Dimensioni del testo */
+.font-base {
+  font-size: var(--font-size-base);
+}
+
+.font-sm {
+  font-size: var(--font-size-sm);
+}
+
+.font-lg {
+  font-size: var(--font-size-lg);
+}
+
+/* Spaziature */
+.spacing-sm {
+  padding: var(--spacing-sm);
+}
+
+.spacing-md {
+  padding: var(--spacing-md);
+}
+
+.spacing-lg {
+  padding: var(--spacing-lg);
+}
+
+/* Border radius */
+.rounded {
+  border-radius: var(--border-radius);
+}
+
+/* Pulsanti */
+.btn-primary {
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  padding: var(--spacing-md);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--button-hover-bg);
 }
