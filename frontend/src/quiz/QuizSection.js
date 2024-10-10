@@ -74,14 +74,14 @@ const StyledQuizSection = () => {
       ]
     },
     {
-      questionText: "What type of testing is used to verify that a new change has not broken existing functionality?",
+      questionText: "What is the primary goal of Functional Testing?",
       answerOptions: [
-        { answerText: "Regression Testing", isCorrect: true },
-        { answerText: "Integration Testing", isCorrect: false },
-        { answerText: "Unit Testing", isCorrect: false },
-        { answerText: "Exploratory Testing", isCorrect: false }
+        { answerText: "To verify that the software behaves according to its specified functional requirements", isCorrect: true },
+        { answerText: "To assess the software's performance under heavy load", isCorrect: false },
+        { answerText: "To ensure the software is secure from vulnerabilities", isCorrect: false },
+        { answerText: "To test the scalability of the software", isCorrect: false }
       ]
-    },
+    },    
     {
       questionText: "What is the first step in the Test Driven Development (TDD) process?",
       answerOptions: [
