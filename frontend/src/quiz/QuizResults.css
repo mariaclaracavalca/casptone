@@ -8,12 +8,6 @@
     margin-top: 10px;
   }
   
-  .delete-icon {
-    width: 20px;
-    height: 20px;
-    filter: invert(100%);
-    transition: transform 0.3s;
-  }
   
   .delete-button:hover .delete-icon {
     transform: scale(1.1);
