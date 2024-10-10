@@ -164,7 +164,7 @@ const QuizResults = () => {
     }, 1000); // Simula il tempo di caricamento
   }, []);
 
-//   const handleDelete = (quizResultId) => {
+const handleDelete = (quizResultId) => {
 //     const token = localStorage.getItem('token');
 //     try {
 //       const response = await fetch(`http://localhost:5000/api/quiz/results/${quizResultId}`, {
