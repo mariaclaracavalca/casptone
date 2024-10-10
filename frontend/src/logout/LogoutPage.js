@@ -14,7 +14,7 @@ const LogoutPage = () => {
   return (
     <div className="logout-container">
       <div className="logout-box">
-        <h1>Sei sicuro di voler disconnetterti?</h1>
+        <h1>Are you sure you want to disconnect?</h1>
         <button className="button-login btn btn-outline-light" onClick={handleLogout}>Logout</button>
       </div>
     </div>

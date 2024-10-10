@@ -111,7 +111,7 @@ const AuthPage = () => {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="auth-page-box p-4 shadow-lg bg-white rounded">
-        <h1 className="mb-4 text-black">{isEdit ? "Modifica Profilo" : (isLogin ? "Accedi" : "Registrati")}</h1>
+        <h1 className="mb-4 text-black">{isEdit ? "Edit Profile" : (isLogin ? "Login" : "Register")}</h1>
         <form onSubmit={isEdit ? handleEdit : (isLogin ? handleLogin : handleRegister)}>
           {!isLogin && !isEdit && (
             <input
@@ -147,7 +147,7 @@ const AuthPage = () => {
             ></span>
           </div>
           <button type="submit" className="button-login btn btn-outline-ligh w-100">
-            {isEdit ? "Salva Modifiche" : (isLogin ? "Accedi" : "Registrati")}
+            {isEdit ? "Save Changes" : (isLogin ? "Login" : "Register")}
           </button>
         </form>
 
@@ -155,18 +155,18 @@ const AuthPage = () => {
 
         {!isEdit && (
           <div className="mt-1 text-black">
-            {isLogin ? "Non hai un account?" : "Hai già un account?"}
+            {isLogin ? "You do not have an account?" : "You already have an account?"}
             <button onClick={toggleForm} className="btn btn-link">
-              {isLogin ? "Registrati qui" : "Accedi qui"}
+              {isLogin ? "Register here" : "Login here"}
             </button>
           </div>
         )}
 
         {isLogin && !isEdit && (
           <div className="mt-1 text-black">
-            Vuoi modificare il profilo?
+            Do you want to edit the profile?
             <button onClick={() => setIsEdit(true)} className="btn btn-link">
-              Modifica qui
+            Edit here
             </button>
           </div>
         )}
@@ -174,7 +174,7 @@ const AuthPage = () => {
         {isEdit && (
           <div className="mt-3 text-black">
             <button onClick={() => { setIsEdit(false); setIsLogin(true); }} className="btn btn-link">
-              Indietro
+            Back
             </button>
           </div>
         )}

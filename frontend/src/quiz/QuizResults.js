@@ -74,22 +74,22 @@ const QuizResults = () => {
 
   return (
     <div className="quiz-results-container container mt-4">
-      <h2 className="mb-4">Risultati dei Quiz</h2>
+      <h2 className="mb-4">Quiz Results</h2>
       {loading ? (
-        <p>Caricamento...</p>
+        <p>Loading...</p>
       ) : error ? (
         <p className="error-message">{error}</p>
       ) : quizResults.length === 0 ? (
-        <p>Non hai ancora completato nessun quiz.</p>
+        <p>You have not yet completed any quizzes.</p>
       ) : (
         quizResults.map((result) => (
           <div key={result._id} className="quiz-result mb-3">
             <div className="quiz-result-header d-flex justify-content-between text-black" onClick={() => toggleExpand(result._id)} style={{ cursor: 'pointer', padding: '10px', backgroundColor: '#f1f1f1', borderRadius: '5px' }}>
               <div>
-                Quiz del {new Date(result.date).toLocaleDateString()}
+              Quiz of the {new Date(result.date).toLocaleDateString()}
               </div>
               <div>
-                Punteggio: {result.score} su {result.totalQuestions} &nbsp;
+              Score: {result.score} su {result.totalQuestions} &nbsp;
                 <button onClick={() => handleDelete(result._id)}>
                   <img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" alt="Elimina" width={20} />
                 </button>
@@ -102,9 +102,9 @@ const QuizResults = () => {
                 <ul>
                   {result.responses.map((response, i) => (
                     <li key={i} style={{ marginBottom: '10px' }}>
-                      <strong>Domanda:</strong> {response.question} <br />
-                      <strong>Risposta:</strong> {response.answer} <br />
-                      <strong>Corretta:</strong> {response.isCorrect ? 'Sì' : 'No'}
+                      <strong>Question:</strong> {response.question} <br />
+                      <strong>Answer:</strong> {response.answer} <br />
+                      <strong>Correct:</strong> {response.isCorrect ? 'Sì' : 'No'}
                     </li>
                   ))}
                 </ul>
@@ -114,7 +114,7 @@ const QuizResults = () => {
         ))
       )}
       <p>
-        <button onClick={handleRetry} className="button-login btn btn-outline-light">Rifai il Quiz</button>
+        <button onClick={handleRetry} className="button-login btn btn-outline-light">Take the Quiz again</button>
       </p>
     </div>
   );

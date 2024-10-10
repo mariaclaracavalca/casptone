@@ -28,7 +28,7 @@ const NavBar = () => {
             {isAuthenticated && (
               <>
               <Nav.Link className="quiz-button" href="/home#styled-quiz-section">Quiz</Nav.Link>
-              <Nav.Link href="/quiz-results">Risultati Quiz</Nav.Link>
+              <Nav.Link href="/quiz-results">Quiz Results</Nav.Link>
               </>
               
             )}
@@ -44,7 +44,7 @@ const NavBar = () => {
               </Button>
             ) : (
               <Button className="button-login" variant="outline-light" onClick={handleLoginClick}>
-                Accedi
+                Login
               </Button>
             )}
           </Nav>
