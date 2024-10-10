@@ -39,7 +39,8 @@ const AuthPage = () => {
       const data = await response.json();
       if (response.ok) {
         localStorage.setItem('token', data.token);
-        localStorage.setItem('userId', data.userId); 
+        localStorage.setItem('userId', data.userId);
+        localStorage.setItem('username', data.name); // Salva il nome utente nel localStorage
         localStorage.setItem('userEmail', email);
         setMessage('Login avvenuto con successo.');
         navigate('/home');
@@ -50,7 +51,7 @@ const AuthPage = () => {
       setMessage('Errore nella connessione al server - login.');
     }
   };
-
+  
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
