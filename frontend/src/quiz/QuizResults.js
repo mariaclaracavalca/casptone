@@ -40,28 +40,6 @@ const QuizResults = () => {
       fetchQuizResults();
   }, []);
 
-
-  const handleDelete = async (quizResultId) => {
-    const token = localStorage.getItem('token');
-    try {
-      const response = await fetch(`http://localhost:8080/api/quiz/results/${quizResultId}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      if (response.ok) {
-        setQuizResults(quizResults.filter(result => result._id !== quizResultId)); // Aggiorna lo stato
-      } else {
-        const errorData = await response.json();
-        setError(errorData.message || 'Errore durante l\'eliminazione del risultato.');
-      }
-    } catch (error) {
-      setError('Errore del server. Riprova più tardi.');
-    }
-  };
-  
-
   const toggleExpand = (quizId) => {
     // Se il quiz è già espanso, chiudilo, altrimenti espandilo
     setExpandedQuiz(expandedQuiz === quizId ? null : quizId);
@@ -90,9 +68,9 @@ const QuizResults = () => {
               </div>
               <div>
               Score: {result.score} su {result.totalQuestions} &nbsp;
-                <button onClick={() => handleDelete(result._id)}>
+                {/* <button onClick={() => handleDelete(result._id)}>
                   <img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" alt="Elimina" width={20} />
-                </button>
+                </button> */}
               </div>
             </div>
 
@@ -104,7 +82,7 @@ const QuizResults = () => {
                     <li key={i} style={{ marginBottom: '10px' }}>
                       <strong>Question:</strong> {response.question} <br />
                       <strong>Answer:</strong> {response.answer} <br />
-                      <strong>Correct:</strong> {response.isCorrect ? 'Sì' : 'No'}
+                      <strong>Correct:</strong> {response.isCorrect ? 'Yes' : 'No'}
                     </li>
                   ))}
                 </ul>

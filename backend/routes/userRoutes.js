@@ -47,30 +47,6 @@ router.post('/api/quiz/results', AuthMiddleware, async (req, res) => {
   }
 });
 
-// Endpoint DELETE per eliminare un risultato del quiz
-router.delete('/api/quiz/results/:id', AuthMiddleware, async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const quizResult = await QuizResult.findById(id);
-    if (!quizResult) {
-      return res.status(404).json({ message: 'Risultato del quiz non trovato.' });
-    }
-
-    // Verifica che l'utente stia cercando di eliminare il proprio risultato
-    if (quizResult.userId.toString() !== req.user.userId) {
-      return res.status(403).json({ message: 'Non hai il permesso di eliminare questo risultato.' });
-    }
-
-    await quizResult.remove();
-    res.status(200).json({ message: 'Risultato del quiz eliminato con successo.' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Errore del server durante l\'eliminazione del risultato del quiz.' });
-  }
-});
-
-
 router.post('/api/users', [
   body('name').notEmpty().withMessage('Il nome è richiesto'),
   body('email').isEmail().withMessage('Email non valida'),
