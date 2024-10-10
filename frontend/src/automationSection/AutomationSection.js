@@ -37,6 +37,12 @@ const AutomationSection = () => {
           >
             Jest
           </button>
+          <button
+            className={`tab-button ${activeTab === "pytest" ? "active" : ""}`}
+            onClick={() => handleTabClick("pytest")}
+          >
+            Pytest
+          </button>
         </div>
 
         <div className="framework-info">
@@ -157,6 +163,45 @@ test('handles fetch failure', async () => {
                 </pre>
                 <p className="code-description">
                   This Jest test validates API call functionality:
+                  <ul>
+                    <li>Mocks a successful API call to fetch user data.</li>
+                    <li>Validates the response structure and data.</li>
+                    <li>
+                      Mocks a failed API call and ensures proper error handling.
+                    </li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+          )}
+
+          {activeTab === "pytest" /* Nuova sezione per Pytest */ && (
+            <div className="framework-details">
+              <h3>Pytest</h3>
+              <div className="code-box">
+                <pre>
+                  {`import pytest
+import requests
+from requests.exceptions import HTTPError
+
+def fetch_user_data(user_id):
+    response = requests.get(f'https://api.example.com/users/{user_id}')
+    if response.status_code != 200:
+        raise HTTPError('Network response was not ok')
+    return response.json()
+
+def test_fetch_user_data_success(mocker):
+    mocker.patch('requests.get', return_value=mocker.Mock(status_code=200, json=lambda: {'userId': 1, 'name': 'Test User'}))
+    user_data = fetch_user_data(1)
+    assert user_data == {'userId': 1, 'name': 'Test User'}
+
+def test_fetch_user_data_failure(mocker):
+    mocker.patch('requests.get', return_value=mocker.Mock(status_code=404))
+    with pytest.raises(HTTPError, match='Network response was not ok'):
+        fetch_user_data(2)`}
+                </pre>
+                <p className="code-description">
+                  This Pytest test validates API call functionality in Python:
                   <ul>
                     <li>Mocks a successful API call to fetch user data.</li>
                     <li>Validates the response structure and data.</li>
