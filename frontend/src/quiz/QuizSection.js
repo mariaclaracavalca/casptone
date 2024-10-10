@@ -63,6 +63,42 @@ const StyledQuizSection = () => {
         { answerText: "JIRA", isCorrect: false },
         { answerText: "Jenkins", isCorrect: false }
       ]
+    },
+    {
+      questionText: "Which of the following is a popular testing framework for Python?",
+      answerOptions: [
+        { answerText: "PyTest", isCorrect: true },
+        { answerText: "React", isCorrect: false },
+        { answerText: "Vue.js", isCorrect: false },
+        { answerText: "Angular", isCorrect: false }
+      ]
+    },
+    {
+      questionText: "What type of testing is used to verify that a new change has not broken existing functionality?",
+      answerOptions: [
+        { answerText: "Regression Testing", isCorrect: true },
+        { answerText: "Integration Testing", isCorrect: false },
+        { answerText: "Unit Testing", isCorrect: false },
+        { answerText: "Exploratory Testing", isCorrect: false }
+      ]
+    },
+    {
+      questionText: "What is the first step in the Test Driven Development (TDD) process?",
+      answerOptions: [
+        { answerText: "Write a failing test", isCorrect: true },
+        { answerText: "Write production code", isCorrect: false },
+        { answerText: "Refactor code", isCorrect: false },
+        { answerText: "Write documentation", isCorrect: false }
+      ]
+    },
+    {
+      questionText: "In Cypress, which command is used to visit a specific URL in the browser?",
+      answerOptions: [
+        { answerText: "cy.visit()", isCorrect: true },
+        { answerText: "cy.goTo()", isCorrect: false },
+        { answerText: "cy.open()", isCorrect: false },
+        { answerText: "cy.load()", isCorrect: false }
+      ]
     }
   ];
 

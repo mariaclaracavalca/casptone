@@ -116,7 +116,7 @@ const AuthPage = () => {
           {!isLogin && !isEdit && (
             <input
               type="text"
-              placeholder="Nome"
+              placeholder="Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required={!isLogin}
