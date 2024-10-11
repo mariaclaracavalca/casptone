@@ -57,15 +57,19 @@ const AuthPage = () => {
         localStorage.setItem('username', name);
         localStorage.setItem('userEmail', email);
         localStorage.setItem('userId', data.userId); 
-        setMessage('Registrazione completata con successo!');
+        setMessage('Registrazione completata con successo! Ora puoi effettuare il login.');
+        
+        setIsLogin(true);
+        setEmail(email);  
+        setPassword(password); 
       } else {
         setMessage(data.message || 'Errore nella registrazione');
       }
     } catch (error) {
       setMessage('Errore nella connessione al server - register.');
     }
-  };
-
+  };  
+  
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="auth-page-box p-4 shadow-lg bg-white rounded">
