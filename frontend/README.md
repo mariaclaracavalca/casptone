@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+🛠️ Software Testing WebApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Benvenuti nel repository del progetto Software Testing WebApp! 🚀
+Questa applicazione web fornisce una panoramica completa sull'importanza del testing nel ciclo di vita del software, con particolare enfasi sui diversi tipi di test (manuali e automatici) e sulle tecniche di Automation Testing.
+Offre anche esempi pratici e risorse per approfondire, migliorando così la conoscenza degli utenti sul Quality Assurance (QA).
 
-## Available Scripts
+🌟 Obiettivo del progetto
+L'obiettivo di questa webapp è informare e educare gli utenti sul ruolo fondamentale del testing nel ciclo di sviluppo del software.
 
-In the project directory, you can run:
+La webapp include:
+✅ Una panoramica sui vari tipi di test, tra cui Functional Testing, Automation Testing, Integration Testing, BDD, e TDD.
+🧑‍💻 Esempi di codice reali per l'automazione dei test utilizzando strumenti popolari come Selenium, Cypress, Jest, PyTest, Appium.
+🔗 Link a risorse esterne per l'approfondimento.
+📝 Un modulo interattivo che spiega i diversi tipi di test con casi d'uso applicabili.
+🛠️ Tecnologie Utilizzate
 
-### `npm start`
+Il progetto è sviluppato utilizzando le seguenti tecnologie:
+Frontend: React.js + Bootstrap
+💻 React assicura un'interfaccia dinamica e interattiva, mentre Bootstrap garantisce un design moderno e reattivo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Backend: Node.js + Express
+🛠️ Node.js fornisce la base server-side per l'app, e Express gestisce l'autenticazione degli utenti e l'interazione con il server.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Database: MongoDB
+📦 Un database non relazionale per gestire dati degli utenti e tracciare i progressi.
 
-### `npm test`
+Autenticazione: Autenticazione tramite JWT per fornire accesso personalizzato a risorse specifiche e tracciare il progresso degli utenti.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+✨ Funzionalità
+Panoramica sui test: Spiegazione dettagliata dei principali tipi di test utilizzati nel QA.
+Esempi di codice: Include esempi reali di automazione dei test con strumenti come Selenium, Cypress, Jest, Appium e PyTest.
+Risorse esterne: Link utili per approfondimenti.
 
-### `npm run build`
+Modulo interattivo: Gli utenti possono scoprire e capire meglio il funzionamento dei diversi test, anche con esempi pratici.
+📖 Tipi di test coperti
+Functional Testing
+Verifica che il software si comporti secondo i requisiti funzionali specificati.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Automation Testing
+Utilizzo di strumenti come Selenium, Cypress, JUnit, Appium per automatizzare i test ripetitivi, riducendo l'intervento umano e aumentando l'accuratezza.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Integration Testing
+Assicura che i diversi moduli software lavorino insieme come previsto, utilizzando strumenti come Postman, JUnit, PyTest.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Behavior Driven Development (BDD)
+Concentrato sul comportamento dell'applicazione dal punto di vista dell'utente finale.
 
-### `npm run eject`
+Test Driven Development (TDD)
+Approccio di sviluppo in cui i test vengono scritti prima del codice.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+⚙️ Istruzioni per l'avvio del progetto
+1. Backend
+Apri la cartella del backend:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+bash
+cd backend
+Cambia la versione di Node.js all'ultima disponibile (in questo caso, la versione che usi è 20.16.0). Se stai usando nvm (Node Version Manager), puoi farlo con il comando: 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+bash
+nvm install 20.16.0
+nvm use 20.16.0
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Installa le dipendenze necessarie:
+bash
+npm install
+Avvia il server con il comando:
 
-## Learn More
+bash
+npm run dev
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Frontend
+Apri la cartella del frontend:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+bash
+cd frontend
+Installa le dipendenze:
 
-### Code Splitting
+bash
+npm install
+Avvia l'applicazione React con il comando:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+bash
+npm run start
 
-### Analyzing the Bundle Size
+Visita l'app su http://localhost:8080
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+📚 Risorse Utili
 
-### Making a Progressive Web App
+[Sito ufficiale di Selenium](https://www.selenium.dev/)
+[Documentazione di Cypress](https://www.cypress.io/)
+[Guida a Jest](https://jestjs.io/)
+[PyTest Documentation](https://docs.pytest.org/en/stable/contents.html)
+[Appium Docs](https://appium.io/docs/en/latest/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+👥 Contributori
+Maria Clara Rezende Cavalca
+QA Specialist
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📧 Contatti
+Per domande o suggerimenti, puoi contattarci via email: m.clara.cavalca@gmail.com
