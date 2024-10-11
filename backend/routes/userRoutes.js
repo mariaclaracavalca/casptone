@@ -13,13 +13,13 @@ router.get('/api/quiz/results', AuthMiddleware, async (req, res) => {
   try {
     const quizResults = await QuizResult.find({ userId: req.user.userId }).sort({ date: -1 }); // Ordina per data
     if (!quizResults) {
-      return res.status(404).json({ message: 'Nessun risultato trovato.' });
+      return res.status(404).json({ message: 'No results found.' });
     }
 
     res.status(200).json(quizResults);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Errore nel recupero dei risultati del quiz.' });
+    res.status(500).json({ message: 'Error in retrieving quiz results.' });
   }
 });
 
@@ -40,17 +40,17 @@ router.post('/api/quiz/results', AuthMiddleware, async (req, res) => {
     // Salva il risultato del quiz nel database
     await quizResult.save();
 
-    res.status(201).json({ message: 'Risultato del quiz salvato con successo.' });
+    res.status(201).json({ message: 'Quiz result saved successfully.' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Errore del server durante il salvataggio dei risultati del quiz.' });
+    res.status(500).json({ message: 'Server error while saving quiz results.' });
   }
 });
 
 router.post('/api/users', [
-  body('name').notEmpty().withMessage('Il nome è richiesto'),
-  body('email').isEmail().withMessage('Email non valida'),
-  body('password').isLength({ min: 6 }).withMessage('La password deve contenere almeno 6 caratteri'),
+  body('name').notEmpty().withMessage('Name is required'),
+  body('email').isEmail().withMessage('Invalid email'),
+  body('password').isLength({ min: 6 }).withMessage('The password must contain at least 6 characters'),
 ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -62,7 +62,7 @@ router.post('/api/users', [
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ message: 'Email già in uso. Prova con un’altra email.' });
+      return res.status(400).json({ message: 'Email already in use. Try another email.' });
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -73,7 +73,7 @@ router.post('/api/users', [
 
     res.status(201).json({ userId: newUser._id, name: newUser.name, email: newUser.email });
   } catch (error) {
-    res.status(500).json({ message: 'Errore del server. Riprova più tardi.' });
+    res.status(500).json({ message: 'Server error. Please try again later.' });
   }
 });
 
@@ -83,19 +83,19 @@ router.post('/api/users/login', async (req, res) => {
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(404).json({ message: 'Utente non trovato. Controlla le credenziali.' });
+      return res.status(404).json({ message: 'User not found. Please check your credentials.' });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(401).json({ message: 'Password errata.' });
+      return res.status(401).json({ message: 'Incorrect password.' });
     }
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     res.status(200).json({ token, userId: user._id, name: user.name, email: user.email });
   } catch (error) {
-    res.status(500).json({ message: 'Errore del server. Riprova più tardi.' });
+    res.status(500).json({ message: 'Server error. Please try again later.' });
   }
 });
 
@@ -106,7 +106,7 @@ router.put('/api/users/:id', AuthMiddleware, async (req, res) => {
   try {
     const user = await User.findById(id);
     if (!user) {
-      return res.status(404).json({ message: 'Utente non trovato.' });
+      return res.status(404).json({ message: 'User not found.' });
     }
 
     user.name = name || user.name;
@@ -119,9 +119,9 @@ router.put('/api/users/:id', AuthMiddleware, async (req, res) => {
 
     await user.save();
 
-    res.status(200).json({ message: 'Profilo aggiornato con successo.', user });
+    res.status(200).json({ message: 'Profile successfully updated.', user });
   } catch (error) {
-    res.status(500).json({ message: 'Errore durante l\'aggiornamento del profilo.' });
+    res.status(500).json({ message: 'Error while updating profile.' });
   }
 });
 

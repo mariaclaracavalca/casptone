@@ -28,10 +28,10 @@ const QuizResults = () => {
             setLoading(false); // Termina il caricamento
           } else {
             const errorData = await response.json();
-            setError(errorData.message || 'Errore nel recupero dei risultati.');
+            setError(errorData.message || 'Error in retrieving results.');
           }
         } catch (error) {
-          setError('Errore del server. Riprova più tardi.');
+          setError('Server error. Please try again later.');
         } finally {
           setLoading(false);
         }

@@ -1,100 +1,100 @@
-🛠️ Software Testing WebApp
+🛠️ Software Testing WebApps
 
-Benvenuti nel repository del progetto Software Testing WebApp! 🚀
-Questa applicazione web fornisce una panoramica completa sull'importanza del testing nel ciclo di vita del software, con particolare enfasi sui diversi tipi di test (manuali e automatici) e sulle tecniche di Automation Testing.
-Offre anche esempi pratici e risorse per approfondire, migliorando così la conoscenza degli utenti sul Quality Assurance (QA).
+Welcome to the Software Testing WebApp project repository! 🚀
+This web application provides a comprehensive overview of the importance of testing in the software lifecycle, with particular emphasis on the different types of tests (manual and automated) and on Automation Testing techniques.
+It also offers practical examples and resources for further study, thus improving users' knowledge of Quality Assurance (QA).
 
-🌟 Obiettivo del progetto
-L'obiettivo di questa webapp è informare e educare gli utenti sul ruolo fondamentale del testing nel ciclo di sviluppo del software.
+🌟 Project objective
+The objective of this webapp is to inform and educate users on the fundamental role of testing in the software development cycle.
 
-La webapp include:
-✅ Una panoramica sui vari tipi di test, tra cui Functional Testing, Automation Testing, Integration Testing, BDD, e TDD.
-🧑‍💻 Esempi di codice reali per l'automazione dei test utilizzando strumenti popolari come Selenium, Cypress, Jest, PyTest, Appium.
-🔗 Link a risorse esterne per l'approfondimento.
-📝 Un modulo interattivo che spiega i diversi tipi di test con casi d'uso applicabili.
-🛠️ Tecnologie Utilizzate
+The webapp includes:
+✅ An overview of the various types of testing, including Functional Testing, Automation Testing, Integration Testing, BDD, and TDD.
+🧑‍💻 Real code examples for test automation using popular tools such as Selenium, Cypress, Jest, PyTest, Appium.
+🔗 Links to external resources for further study.
+📝 An interactive module explaining the different types of tests with applicable use cases.
+🛠️ Technologies Used
 
-Il progetto è sviluppato utilizzando le seguenti tecnologie:
+The project is developed using the following technologies:
 Frontend: React.js + Bootstrap
-💻 React assicura un'interfaccia dinamica e interattiva, mentre Bootstrap garantisce un design moderno e reattivo.
+💻 React ensures a dynamic and interactive interface, while Bootstrap guarantees a modern and responsive design.
 
 Backend: Node.js + Express
-🛠️ Node.js fornisce la base server-side per l'app, e Express gestisce l'autenticazione degli utenti e l'interazione con il server.
+🛠️ Node.js provides the server-side basis for the app, and Express handles user authentication and interaction with the server.
 
 Database: MongoDB
-📦 Un database non relazionale per gestire dati degli utenti e tracciare i progressi.
+📦 A non-relational database to manage user data and track progress.
 
-Autenticazione: Autenticazione tramite JWT per fornire accesso personalizzato a risorse specifiche e tracciare il progresso degli utenti.
+Authentication: Authentication via JWT to provide customised access to specific resources and track user progress.
 
-✨ Funzionalità
-Panoramica sui test: Spiegazione dettagliata dei principali tipi di test utilizzati nel QA.
-Esempi di codice: Include esempi reali di automazione dei test con strumenti come Selenium, Cypress, Jest, Appium e PyTest.
-Risorse esterne: Link utili per approfondimenti.
+✨ Functionality
+Test overview: Detailed explanation of the main types of tests used in QA.
+Code Examples: Includes real examples of test automation with tools such as Selenium, Cypress, Jest, Appium and PyTest.
+External resources: Useful links for more in-depth information.
 
-Modulo interattivo: Gli utenti possono scoprire e capire meglio il funzionamento dei diversi test, anche con esempi pratici.
-📖 Tipi di test coperti
+Interactive module: Users can discover and better understand how different tests work, including practical examples.
+📖 Types of tests covered
 Functional Testing
-Verifica che il software si comporti secondo i requisiti funzionali specificati.
+Tests that the software behaves according to the specified functional requirements.
 
 Automation Testing
-Utilizzo di strumenti come Selenium, Cypress, JUnit, Appium per automatizzare i test ripetitivi, riducendo l'intervento umano e aumentando l'accuratezza.
+Using tools such as Selenium, Cypress, JUnit, Appium to automate repetitive testing, reducing human intervention and increasing accuracy.
 
 Integration Testing
-Assicura che i diversi moduli software lavorino insieme come previsto, utilizzando strumenti come Postman, JUnit, PyTest.
+Ensures that the different software modules work together as intended, using tools such as Postman, JUnit, PyTest.
 
-Behavior Driven Development (BDD)
-Concentrato sul comportamento dell'applicazione dal punto di vista dell'utente finale.
+Behaviour Driven Development (BDD)
+Focused on the behaviour of the application from the end user's point of view.
 
 Test Driven Development (TDD)
-Approccio di sviluppo in cui i test vengono scritti prima del codice.
+Development approach in which tests are written before the code.
 
-⚙️ Istruzioni per l'avvio del progetto
+⚙️ Instructions for starting the project
 1. Backend
-Apri la cartella del backend:
+Open the backend folder:
 
 bash
 cd backend
-Cambia la versione di Node.js all'ultima disponibile (in questo caso, la versione che usi è 20.16.0). Se stai usando nvm (Node Version Manager), puoi farlo con il comando: 
+Change the version of Node.js to the latest available (in this case, the version you are using is 20.16.0). If you are using nvm (Node Version Manager), you can do this with the command 
 
 bash
 nvm install 20.16.0
 nvm use 20.16.0
 
-Installa le dipendenze necessarie:
+Install the necessary dependencies:
 bash
 npm install
-Avvia il server con il comando:
+Start the server with the command
 
 bash
 npm run dev
 
 2. Frontend
-Apri la cartella del frontend:
+Open the frontend folder:
 
 bash
 cd frontend
-Installa le dipendenze:
+Install the dependencies:
 
 bash
 npm install
-Avvia l'applicazione React con il comando:
+Start the React application with the command
 
 bash
 npm run start
 
-Visita l'app su http://localhost:8080
+Visit the app at http://localhost:8080
 
-📚 Risorse Utili
+📚 Useful resources
 
-[Sito ufficiale di Selenium](https://www.selenium.dev/)
-[Documentazione di Cypress](https://www.cypress.io/)
-[Guida a Jest](https://jestjs.io/)
+[Official Selenium website](https://www.selenium.dev/)
+[Cypress Documentation](https://www.cypress.io/)
+[Guide to Jest](https://jestjs.io/)
 [PyTest Documentation](https://docs.pytest.org/en/stable/contents.html)
 [Appium Docs](https://appium.io/docs/en/latest/)
 
-👥 Contributori
+👥 Contributors
 Maria Clara Rezende Cavalca
 QA Specialist
 
-📧 Contatti
-Per domande o suggerimenti, puoi contattarci via email: m.clara.cavalca@gmail.com
+📧 Contacts
+For questions or suggestions, please contact us by email: m.clara.cavalca@gmail.com

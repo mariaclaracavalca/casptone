@@ -32,13 +32,13 @@ const AuthPage = () => {
         localStorage.setItem('userId', data.userId);
         localStorage.setItem('username', data.name); // Salva il nome utente nel localStorage
         localStorage.setItem('userEmail', email);
-        setMessage('Login avvenuto con successo.');
+        setMessage('Successful login.');
         navigate('/home');
       } else {
-        setMessage(data.message || 'Errore nel login');
+        setMessage(data.message || 'Login error');
       }
     } catch (error) {
-      setMessage('Errore nella connessione al server - login.');
+      setMessage('Error connecting to the server');
     }
   };
   
@@ -57,16 +57,16 @@ const AuthPage = () => {
         localStorage.setItem('username', name);
         localStorage.setItem('userEmail', email);
         localStorage.setItem('userId', data.userId); 
-        setMessage('Registrazione completata con successo! Ora puoi effettuare il login.');
+        setMessage('Registration completed successfully! You can now log in.');
         
         setIsLogin(true);
         setEmail(email);  
         setPassword(password); 
       } else {
-        setMessage(data.message || 'Errore nella registrazione');
+        setMessage(data.message || 'Registration error');
       }
     } catch (error) {
-      setMessage('Errore nella connessione al server - register.');
+      setMessage('Server connection error.');
     }
   };  
   
